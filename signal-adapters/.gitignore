@@ -131,3 +131,5 @@ dmypy.json
 # env files 
 *.env
 *.envrc
+
+!*example.env
