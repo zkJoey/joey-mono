@@ -29,6 +29,10 @@ contract Custodian {
         // once full credit amount has been recovered, the ownership is transferred back to the borrower
     }
 
+    /**
+     * @notice Transfers ownership of the credit wallet back to the borrower after credit amount has been fully recoverd
+     * @param borrower address of the borrower to takeover
+     */
     function recover(address borrower) external {
         // check if credit is fully repaid
         require(baseCreditPool.isFullyPaid(borrower));
