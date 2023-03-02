@@ -29,7 +29,7 @@ class CircleAdapter(adapter_models.SignalAdapterBase):
         headers = {"accept": "application/json", "Authorization": 'Bearer {}'.format(api_key)}
         response = requests.get(url, headers=headers)
         print("response: ", response.json())
-        amount = response.json()["data"]["available"]
+        # amount = response.json()["data"]["available"]
         amount = 881234 # create mock balance response
         return CircleSignals(account_balance=amount)
     
