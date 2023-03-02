@@ -2,7 +2,6 @@
 pragma solidity ^0.8.0;
 
 import "./BaseCreditPool.sol";
-// import "./zkBob/src/interfaces/IZkBobDirectDeposits.sol";
 
 import "hardhat/console.sol";
 
@@ -10,8 +9,8 @@ import "hardhat/console.sol";
  * @notice Custodian contract to manage custody of the borrower's account
  */
 contract Custodian {
-    using SafeERC20 for IERC20;
     BaseCreditPool public baseCreditPool;
+    address borrowerContract;
 
     constructor(address _baseCreditPool) {
         baseCreditPool = BaseCreditPool(_baseCreditPool);
@@ -24,7 +23,15 @@ contract Custodian {
     function takeOver(address borrower) external {
         // check if credit defaulted
         require(baseCreditPool.isDefaultReady(borrower));
+        borrowerContract = borrower;
         // takeover the account based on certain conditions
-        // takeOver(borrower);
+        // borrowerContract.receiveOwnership() of the borrowers account
+        // once full credit amount has been recovered, the ownership is transferred back to the borrower
+    }
+
+    function recover(address borrower) external {
+        // check if credit is fully repaid
+        require(baseCreditPool.isFullyPaid(borrower));
+        // borrowerContract.transferOwnership(borrower)
     }
 }

@@ -380,6 +380,10 @@ contract BaseCreditPool is BasePool, BaseCreditPoolStorage, ICredit {
                 : false;
     }
 
+    function isFullyPaid(address borrower) external view virtual returns (bool) {
+        return (_creditRecordMapping[borrower].totalDue <= 0);
+    }
+
     function _approveCredit(BS.CreditRecord memory cr)
         internal
         view
