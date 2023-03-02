@@ -1,4 +1,5 @@
 import datetime
+import os
 from typing import Any, ClassVar, List
 
 # import httpx
@@ -14,6 +15,7 @@ from huma_signals.settings import settings
 logger = structlog.get_logger()
 
 url = "https://api-sandbox.circle.com/v1/businessAccount/balances"
+api_key = os.getenv("circle_api_key")
 
 class CircleSignals(models.HumaBaseModel):
     account_balance: int
@@ -24,9 +26,10 @@ class CircleAdapter(adapter_models.SignalAdapterBase):
     signals: ClassVar[List[str]] = list(CircleSignals.__fields__.keys())
     
     async def fetch(self, *args: Any, **kwargs: Any) -> CircleSignals:
-        headers = {"accept": "application/json"}
+        headers = {"accept": "application/json", "Authorization": 'Bearer {}'.format(api_key)}
         response = requests.get(url, headers=headers)
-        print(response.text)
-        amount = 881234 # create mock account since Circle API keys are not distributed
+        print("response: ", response.json())
+        amount = response.json()["data"]["available"]
+        amount = 881234 # create mock balance response
         return CircleSignals(account_balance=amount)
     
