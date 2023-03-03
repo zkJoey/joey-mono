@@ -7,6 +7,7 @@ import { ethers } from 'ethers';
 
 // pages
 import Home from './pages/Home';
+import Pay from './components/Pay';
 import DeployCreditWallet from './pages/DeployCreditWallet';
 import CreditLine from './pages/CreditLine';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
@@ -22,6 +23,7 @@ import { arbitrum, mainnet, polygon } from "wagmi/chains";
 import { Web3Button, Web3Modal, Web3NetworkSwitch } from '@web3modal/react'
 
 import { Link, useLocation } from 'react-router-dom';
+import PayPage from './pages/PayPage';
 
 // import {getCreditWalletAddress} from './utils/utils'
 
@@ -70,6 +72,7 @@ const ethereumClient = new EthereumClient(wagmiClient, chains);
 
 const App = () => {
   const [creditWalletAddress , setCreditWalletAddress] = useState(null);
+  const [creditStatus, setCreditStatus] = useState(null);
   useEffect(() => {
     
     const getCreditWalletAddress = async () => {
@@ -113,7 +116,8 @@ const App = () => {
       <Layout creditWalletAddress={creditWalletAddress}>
         <Routes>
           <Route path="/" element={<DeployCreditWallet setCreditWalletAddress={setCreditWalletAddress}/>}></Route>
-          <Route path="/credit-line" element={<CreditLine creditWalletAddress={creditWalletAddress} />}></Route>
+          <Route path="/credit-line" element={<CreditLine creditWalletAddress={creditWalletAddress} setCreditStatus={setCreditStatus} />}></Route>
+          <Route path="/pay" element={<PayPage creditStatus={creditStatus} creditWalletAddress={creditWalletAddress}  />}></Route>
         </Routes>
         <Web3Modal projectId={projectId} ethereumClient={ethereumClient} />
       </Layout>
