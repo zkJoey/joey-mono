@@ -49,7 +49,7 @@ const CreditLine = ({ creditWalletAddress, setCreditStatus }) => {
 
       <ModalOpener
         button={
-          <Button type="button" className="bg-[#635aff] hover:bg-[#4c4cdc]">
+          <Button type="button" size="lg" className="bg-violet-700 hover:bg-violet-800">
             Connect Stripe
           </Button>
         }
@@ -66,7 +66,7 @@ const CreditLine = ({ creditWalletAddress, setCreditStatus }) => {
 
       <ModalOpener
         button={
-          <Button type="button" className="bg-[#2276cb] hover:bg-[#2376cb]">
+          <Button type="button" size="lg" className="bg-blue-600 hover:bg-blue-700">
             Connect Circle
           </Button>
         }
