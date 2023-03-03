@@ -3,78 +3,20 @@ import { Link, useLocation } from 'react-router-dom';
 import { ethers } from 'ethers';
 
 
+import useWalletFactory from '../lib/hooks/useWalletFactory';
+import Button from '../components/ui/Button';
+
 const DeployCreditWallet = ({
   setCreditWalletAddress
 }) => {
 
-
-  const createWallet = async () => {
-      const provider = new ethers.providers.Web3Provider(window.ethereum);
-      const signer = provider.getSigner();
-      const address = await signer.getAddress();
-      const abi = 
-      [
-          {
-            "anonymous": false,
-            "inputs": [
-              {
-                "indexed": false,
-                "internalType": "address",
-                "name": "wallet",
-                "type": "address"
-              }
-            ],
-            "name": "NewWallet",
-            "type": "event"
-          },
-          {
-            "inputs": [],
-            "name": "createWallet",
-            "outputs": [
-              {
-                "internalType": "address",
-                "name": "",
-                "type": "address"
-              }
-            ],
-            "stateMutability": "nonpayable",
-            "type": "function"
-          },
-          {
-            "inputs": [
-              {
-                "internalType": "address",
-                "name": "",
-                "type": "address"
-              }
-            ],
-            "name": "wallets",
-            "outputs": [
-              {
-                "internalType": "address",
-                "name": "",
-                "type": "address"
-              }
-            ],
-            "stateMutability": "view",
-            "type": "function"
-          }
-        ]; 
-      // makes createWallet function call to 0x99bbA657f2BbC93c02D617f8bA121cB8Fc104Acf
-      const contract = new ethers.Contract("0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512", abi, signer);
-      const tx = await contract.createWallet();
-      const rc = await tx.wait();
-      const event = rc.events.find(event => event.event === 'NewWallet');
-      console.log(event);
-      console.log(event.args[0]);
-      console.log(address);
-      setCreditWalletAddress(event.args[0]);
+  const { createWallet } = useWalletFactory();
   
-  
-      // const x = await contract.wallets(address);
-      // console.log(x);
+  const handleCreateWallet = async () => {
+    const address = await createWallet();
+    console.log("address: " + address)
+    setCreditWalletAddress(address);
   }
-  
 
 
   return (
@@ -92,9 +34,10 @@ const DeployCreditWallet = ({
           lending and repayment process, and ensuring that funds are only
           released when specific conditions are met.
         </p>
-        <button onClick={createWallet} className="mt-4 inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+        <Button type="button" onClick={handleCreateWallet}>Deploy Your Smart Contract Wallet</Button>
+        {/* <button onClick={handleCreateWallet} className="mt-4 inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
           Deploy Your Smart Contract Wallet
-        </button>
+        </button> */}
       </div>
     </>
   );

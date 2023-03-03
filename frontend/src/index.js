@@ -113,7 +113,7 @@ const App = () => {
       <Layout creditWalletAddress={creditWalletAddress}>
         <Routes>
           <Route path="/" element={<DeployCreditWallet setCreditWalletAddress={setCreditWalletAddress}/>}></Route>
-          <Route path="/credit-line" element={<CreditLine />}></Route>
+          <Route path="/credit-line" element={<CreditLine creditWalletAddress={creditWalletAddress} />}></Route>
         </Routes>
         <Web3Modal projectId={projectId} ethereumClient={ethereumClient} />
       </Layout>

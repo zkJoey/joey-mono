@@ -1,8 +1,11 @@
 // create a component with "check your credit line" button
 import { useState } from 'react';
+import Button from '../components/ui/Button';
+import Input from '../components/ui/Input';
 const CreditLine = () => {
     const [creditLine, setCreditLine] = useState(0);
     const [isChecking, setIsChecking] = useState(false);
+    const [stripeApiKey, setStripeApiKey] = useState('');
     
     const checkCreditLine = async () => {
         setIsChecking(true);
@@ -22,15 +25,12 @@ const CreditLine = () => {
                 You can borrow up to {creditLine} ETH
                 </p>
             </div>
-            <div className="flex flex-col items-center justify-center">
-                <button
-                className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4"
-                onClick={checkCreditLine}
-                disabled={isChecking}
-                >
-                {isChecking ? 'Checking...' : 'Check'}
-                </button>
-            </div>
+            <Input label="Your Stripe Api Key"
+                value={stripeApiKey}
+                onChange={(e) => setStripeApiKey(e.target.value)}
+             />
+            <Button type="button" onClick={checkCreditLine} loading={isChecking}>Check</Button>
+
             </div>
         </div>
         </div>
