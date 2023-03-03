@@ -1,0 +1,78 @@
+=============== Mar 3, 2023 (UTC) ===============
+06:32:47.315965 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+06:32:47.331372 db@open opening
+06:32:47.341667 version@stat F·[] S·0B[] Sc·[]
+06:32:47.347110 db@janitor F·2 G·0
+06:32:47.348374 db@open done T·15.9465ms
+06:32:47.382570 db@close closing
+06:32:47.384353 db@close done T·1.772916ms
+=============== Mar 3, 2023 (UTC) ===============
+06:32:47.822009 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+06:32:47.831934 version@stat F·[] S·0B[] Sc·[]
+06:32:47.833008 db@open opening
+06:32:47.834242 journal@recovery F·1
+06:32:47.839674 journal@recovery recovering @1
+06:32:47.852904 memdb@flush created L0@2 N·42 S·3KiB "\x01\xb7\x06..\x12'\xe7,v24":"\xe8\xe3\x8f..h4\x0e,v20"
+06:32:47.861249 version@stat F·[1] S·3KiB[3KiB] Sc·[0.25]
+06:32:47.871261 db@janitor F·3 G·0
+06:32:47.872348 db@open done T·38.332583ms
+06:39:35.319756 db@close closing
+06:39:35.322938 db@close done T·3.15175ms
+=============== Mar 3, 2023 (UTC) ===============
+06:43:36.791715 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+06:43:36.805452 version@stat F·[1] S·3KiB[3KiB] Sc·[0.25]
+06:43:36.806805 db@open opening
+06:43:36.808298 journal@recovery F·1
+06:43:36.810884 journal@recovery recovering @3
+06:43:36.945352 memdb@flush created L0@5 N·4161 S·413KiB "\x00\xacC..\rȴ,v649":"\xff\xfem..\xd783,v846"
+06:43:36.949933 version@stat F·[2] S·417KiB[417KiB] Sc·[0.50]
+06:43:36.968346 db@janitor F·4 G·0
+06:43:36.969367 db@open done T·161.747167ms
+06:43:37.006524 db@close closing
+06:43:37.008502 db@close done T·1.939375ms
+=============== Mar 3, 2023 (UTC) ===============
+06:43:37.485818 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+06:43:37.496079 version@stat F·[2] S·417KiB[417KiB] Sc·[0.50]
+06:43:37.497566 db@open opening
+06:43:37.499207 journal@recovery F·1
+06:43:37.509259 journal@recovery recovering @6
+06:43:37.519910 memdb@flush created L0@8 N·1 S·404B "eth..\x94\xd7y,v4206":"eth..\x94\xd7y,v4206"
+06:43:37.526349 version@stat F·[3] S·417KiB[417KiB] Sc·[0.75]
+06:43:37.538883 db@janitor F·5 G·0
+06:43:37.540014 db@open done T·41.4515ms
+=============== Mar 3, 2023 (UTC) ===============
+07:38:43.012683 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+07:38:43.024598 version@stat F·[3] S·417KiB[417KiB] Sc·[0.75]
+07:38:43.026043 db@open opening
+07:38:43.027217 journal@recovery F·1
+07:38:43.032305 journal@recovery recovering @9
+07:38:43.669803 memdb@flush created L0@11 N·22689 S·1MiB "\x00\xf6\xc5..]{\x83,v4425":"\xfea\x9e..\xe6\xb8c,v13457"
+07:38:43.672705 version@stat F·[4] S·1MiB[1MiB] Sc·[1.00]
+07:38:43.689549 db@janitor F·6 G·0
+07:38:43.691061 db@open done T·663.974709ms
+07:38:43.692128 table@compaction L0·4 -> L1·0 S·1MiB Q·26897
+07:38:43.741874 db@close closing
+07:38:44.293938 table@build created L1@14 N·18087 S·1MiB "\x00\xacC..\rȴ,v649":"\xff\xfem..\xd783,v846"
+07:38:44.295240 table@build exiting
+07:38:44.295848 table@build revert @14
+07:38:44.298247 db@close done T·556.367792ms
+=============== Mar 3, 2023 (UTC) ===============
+07:38:44.814562 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+07:38:44.834526 version@stat F·[4] S·1MiB[1MiB] Sc·[1.00]
+07:38:44.836116 db@open opening
+07:38:44.837931 journal@recovery F·1
+07:38:44.868311 journal@recovery recovering @12
+07:38:44.893250 memdb@flush created L0@14 N·1 S·404B "eth..\x94\xd7y,v26898":"eth..\x94\xd7y,v26898"
+07:38:44.907047 version@stat F·[5] S·1MiB[1MiB] Sc·[1.25]
+07:38:44.921485 db@janitor F·7 G·0
+07:38:44.922731 db@open done T·85.062ms
+07:38:44.923804 table@compaction L0·5 -> L1·0 S·1MiB Q·26899
+07:38:45.600234 table@build created L1@17 N·18087 S·1MiB "\x00\xacC..\rȴ,v649":"\xff\xfem..\xd783,v846"
+07:38:45.604708 version@stat F·[0 1] S·1MiB[0B 1MiB] Sc·[0.00 0.01]
+07:38:45.606659 table@compaction committed F-4 S-356KiB Ke·0 D·8807 T·679.75625ms
+07:38:45.609506 table@remove removed @11
+07:38:45.611493 table@remove removed @8
+07:38:45.612299 table@remove removed @5
+07:38:45.613286 table@remove removed @2
+08:05:47.286584 db@close closing
+08:05:47.298732 db@close done T·12.129959ms
