@@ -37,7 +37,7 @@ const Pay = ({ creditWalletAddress }) => {
         value={amount}
         onChange={(e) => setAmount(e.target.value)}
       />
-      <Button type="button" onClick={handlePay} loading={isSending}>Pay</Button>
+      <Button type="button" variant='primary' onClick={handlePay} loading={isSending}>Pay</Button>
     </Container>
   );
 };

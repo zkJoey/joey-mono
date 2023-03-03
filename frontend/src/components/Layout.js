@@ -6,7 +6,7 @@ const Layout = ({ children, creditWalletAddress }) => {
   return (
     <>
       <Header creditWalletAddress={creditWalletAddress} />
-      <div className="max-w-screen-xl ">{children}</div>
+      <div>{children}</div>
       <Footer />
     </>
   );

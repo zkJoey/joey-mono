@@ -60,8 +60,7 @@ const usePoolContract = ( creditWalletAddress ) => {
     };
 
   const getCreditRecordMapping = async () => {
-    const address = await signer.getAddress();
-    const creditRecordMapping = await contract.creditRecordMapping(address);
+    const creditRecordMapping = await contract.creditRecordMapping(creditWalletAddress);
     return creditRecordMapping;
   };
 

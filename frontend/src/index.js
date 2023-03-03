@@ -8,6 +8,7 @@ import { ethers } from 'ethers';
 // pages
 import Home from './pages/Home';
 import Pay from './components/Pay';
+import CreditInfoPage from './pages/CreditInfoPage';
 import DeployCreditWallet from './pages/DeployCreditWallet';
 import CreditLine from './pages/CreditLine';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
@@ -118,6 +119,7 @@ const App = () => {
           <Route path="/" element={<DeployCreditWallet setCreditWalletAddress={setCreditWalletAddress}/>}></Route>
           <Route path="/credit-line" element={<CreditLine creditWalletAddress={creditWalletAddress} setCreditStatus={setCreditStatus} />}></Route>
           <Route path="/pay" element={<PayPage creditStatus={creditStatus} creditWalletAddress={creditWalletAddress}  />}></Route>
+          <Route path="/credit-info" element={<CreditInfoPage creditStatus={creditStatus} creditWalletAddress={creditWalletAddress} />}></Route>
         </Routes>
         <Web3Modal projectId={projectId} ethereumClient={ethereumClient} />
       </Layout>

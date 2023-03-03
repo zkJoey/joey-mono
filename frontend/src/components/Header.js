@@ -49,7 +49,6 @@ const Header = ({creditWalletAddress}) => {
       ];
       const contract = new ethers.Contract("0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512", abi, signer);
       const smartContractWalletAddress = await contract.wallets(address);
-      console.log("SASD", smartContractWalletAddress);
       if(smartContractWalletAddress != 0x00)
         setSmartContractWalletAddress(smartContractWalletAddress);
     }
@@ -112,12 +111,9 @@ const Header = ({creditWalletAddress}) => {
               {Object.keys(routes).map((name) => (
                 <NavItem key={name} name={name} route={routes[name]} />
               ))}
-              <li>
-              <Web3Button />
-              <Web3NetworkSwitch />
-              {creditWalletAddress && <MyWalletButton address={creditWalletAddress} />}
-              
-              </li>
+              <li><Web3Button className="bg-red-900" /></li>
+              <li><Web3NetworkSwitch /></li>
+              <li>{creditWalletAddress && <MyWalletButton address={creditWalletAddress} />}</li>
             </ul>
           </div>
         </div>
