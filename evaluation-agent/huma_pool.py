@@ -32,15 +32,17 @@ class HumaPool:
         contract_address = HexStr(pool_address)
         self.huma_pool_contract = zksync_web3.zksync.contract(address=contract_address, abi=self.abi)
         print("self.huma_pool_contract", self.huma_pool_contract.address)
-        self.pool_config_address = HexStr(self.get_pool_config_address())
-        # self.pool_config_address = "0xf698A0a40064a8BF6fb28D91964af11048D52680"
+        # self.pool_config_address = HexStr(self.get_pool_config_address())
+        self.pool_config_address = HexStr("0x783DeaD1bA2f988F9c8977DeD606A126334E757e")
         print("self.pool_config_address", self.pool_config_address)
         with open("abi/BasePoolConfig.json") as f:
             self.config_abi = json.load(f)
         self.huma_pool_config_contract = zksync_web3.zksync.contract(address=self.pool_config_address, abi=self.config_abi)
         print("self.huma_pool_config_contract", self.huma_pool_config_contract)
         # print("mappping: ", self.get_pool_creditRecordStaticMapping(self, self.borrower_address))
+        import pdb;pdb.set_trace()
         self.summary = self.get_pool_summary()
+        
         print("self.summary", self.summary)
         
     def post_approved_request(self, **approve_result):
@@ -68,7 +70,7 @@ class HumaPool:
     
     def get_pool_config_address(self):
         import pdb;pdb.set_trace()
-        return self.huma_pool_contract.functions.poolConfig().call()
+        return self.huma_pool_contract.functions.poolConfigAddr().call()
     
     def get_pool_creditRecordStaticMapping(self, borrower_address):
         return self.huma_pool_contract.functions.creditRecordStaticMapping(Web3.toChecksumAddress(borrower_address)).call()
