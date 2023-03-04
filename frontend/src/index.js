@@ -28,6 +28,7 @@ import { zkSync_localhost } from "./lib/chains";
 
 import { WALLET_FACTORY_ADDRESS } from "./contracts/WaletFactory";
 import LoadingFullpage from "./components/ui/LoadingFullpage";
+import AddVendor from "./components/AddVendor";
 
 // import {getCreditWalletAddress} from './utils/utils'
 
@@ -64,35 +65,43 @@ const App = () => {
   useEffect(() => {
     const getCreditWalletAddress = async () => {
       setIsLoading(true);
-      const provider = new ethers.providers.Web3Provider(window.ethereum);
-      const signer = provider.getSigner();
-      const address = await signer.getAddress();
-      const abi = [
-        {
-          inputs: [
-            {
-              internalType: "address",
-              name: "",
-              type: "address",
-            },
-          ],
-          name: "wallets",
-          outputs: [
-            {
-              internalType: "address",
-              name: "",
-              type: "address",
-            },
-          ],
-          stateMutability: "view",
-          type: "function",
-        },
-      ];
-      const contract = new ethers.Contract(WALLET_FACTORY_ADDRESS, abi, signer);
-      const creditWalletAddress = await contract.wallets(address);
-      console.log("SASD", creditWalletAddress);
-      if (creditWalletAddress != 0x00)
-        setCreditWalletAddress(creditWalletAddress);
+      try {
+        const provider = new ethers.providers.Web3Provider(window.ethereum);
+        const signer = provider.getSigner();
+        const address = await signer.getAddress();
+        const abi = [
+          {
+            inputs: [
+              {
+                internalType: "address",
+                name: "",
+                type: "address",
+              },
+            ],
+            name: "wallets",
+            outputs: [
+              {
+                internalType: "address",
+                name: "",
+                type: "address",
+              },
+            ],
+            stateMutability: "view",
+            type: "function",
+          },
+        ];
+        const contract = new ethers.Contract(
+          WALLET_FACTORY_ADDRESS,
+          abi,
+          signer
+        );
+        const creditWalletAddress = await contract.wallets(address);
+        console.log("SASD", creditWalletAddress);
+        if (creditWalletAddress != 0x00)
+          setCreditWalletAddress(creditWalletAddress);
+      } catch (e) {
+        console.log(e);
+      }
       setIsLoading(false);
     };
 
@@ -133,12 +142,27 @@ const App = () => {
                 }
               ></Route>
               <Route
+                path="/pay/:vendorAddress"
+                element={
+                  <PayPage
+                    creditStatus={creditStatus}
+                    creditWalletAddress={creditWalletAddress}
+                  />
+                }
+              ></Route>
+              <Route
                 path="/credit-info"
                 element={
                   <CreditInfoPage
                     creditStatus={creditStatus}
                     creditWalletAddress={creditWalletAddress}
                   />
+                }
+              ></Route>
+              <Route
+                path="/add-vendor"
+                element={
+                  <AddVendor />
                 }
               ></Route>
             </Routes>

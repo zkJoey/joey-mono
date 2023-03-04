@@ -12,7 +12,7 @@ import MyWalletButton from '../components/MyWalletButton';
 const routes = {
   'Home': '/',
   'Credit Line': '/credit-line',
-  'Pay': '/pay',
+  'Pay': '/add-vendor',
 }
 
 const Header = ({creditWalletAddress}) => {
