@@ -41,10 +41,94 @@ def underwrite(huma_pool, **kwargs):
     stripe_signal_names = ["stripe_adapter.total_balance"]
     circle_signal_names = ["circle_adapter.account_balance"]
     spectral_signal_names = ["spectral_adapter.score"]
+    flock_signal_names = ["flock_adapter.prediction"]
 
     stripe_adapter_input = {"stripe_api_key": stripe_api_key}
     circle_adapter_input = {"account": account}
     spectral_adapter_input = {"wallet": wallet, "token": token}
+    flock_adapter_input = {"input_array": [
+        12000.0,
+        36,
+        10.78,
+        98000.0,
+        24.04,
+        0.0,
+        694.0,
+        0.0,
+        15.0,
+        1.0,
+        20462.0,
+        62.8,
+        39.0,
+        1349.67,
+        0.0,
+        0.0,
+        7884.96,
+        754.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0
+    ]}
 
     credit_limit = 0
     intervalInDays = 0
@@ -88,6 +172,17 @@ def underwrite(huma_pool, **kwargs):
         print("spectral_score too low")
         raise Exception("accountTooNew")
     
+    flock_signals = fetch_signal(flock_signal_names, flock_adapter_input)
+    flock_prediction = float(flock_signals.get(flock_signal_names[0]))
+    print("flock_prediction: ", flock_prediction)
+    if flock_prediction == 0:
+        credit_limit += 100
+        intervalInDays += 10
+        remainingPeriods += 3
+        aprInBps -= 10
+    else:
+        print("flock_prediction too low")
+        raise Exception("accountTooNew")
     print("finished checks")
     
     
