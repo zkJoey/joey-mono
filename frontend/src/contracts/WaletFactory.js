@@ -3,25 +3,52 @@ export const WALLET_FACTORY_ADDRESS =
 
 export const WALLET_FACTORY_ABI = [
   {
-    anonymous: false,
     inputs: [
       {
-        indexed: false,
-        internalType: "address",
-        name: "wallet",
-        type: "address",
+        internalType: "bytes32",
+        name: "_aaBytecodeHash",
+        type: "bytes32",
       },
     ],
-    name: "NewWallet",
-    type: "event",
+    stateMutability: "nonpayable",
+    type: "constructor",
   },
   {
     inputs: [],
-    name: "createWallet",
+    name: "aaBytecodeHash",
+    outputs: [
+      {
+        internalType: "bytes32",
+        name: "",
+        type: "bytes32",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "bytes32",
+        name: "salt",
+        type: "bytes32",
+      },
+      {
+        internalType: "address",
+        name: "owner1",
+        type: "address",
+      },
+      {
+        internalType: "address",
+        name: "humaPool",
+        type: "address",
+      },
+    ],
+    name: "deployAccount",
     outputs: [
       {
         internalType: "address",
-        name: "",
+        name: "accountAddress",
         type: "address",
       },
     ],
