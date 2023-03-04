@@ -134,6 +134,7 @@ async function deploy(contractName, keyName, contractParameters, deployer) {
     // const gasPrice = web3.utils.toHex('33000000000')
 
     let contract;
+    console.log("contractParameters: ", ...contractParameters);
     if (contractParameters) {
         contract = await deployer.deploy(Contract, ...contractParameters);
     } else {
