@@ -36,6 +36,11 @@
   },
   {
     "inputs": [],
+    "name": "creditLineOutstanding",
+    "type": "error"
+  },
+  {
+    "inputs": [],
     "name": "defaultHasAlreadyBeenTriggered",
     "type": "error"
   },
@@ -66,12 +71,22 @@
   },
   {
     "inputs": [],
+    "name": "paymentDetectionServiceAccountRequired",
+    "type": "error"
+  },
+  {
+    "inputs": [],
     "name": "permissionDeniedNotLender",
     "type": "error"
   },
   {
     "inputs": [],
     "name": "poolIsNotOn",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "poolOperatorRequired",
     "type": "error"
   },
   {
@@ -771,6 +786,11 @@
         "internalType": "uint256",
         "name": "borrowAmount",
         "type": "uint256"
+      },
+      {
+        "internalType": "address",
+        "name": "receiver",
+        "type": "address"
       }
     ],
     "name": "drawdown",
@@ -891,6 +911,25 @@
       }
     ],
     "name": "isDefaultReady",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "borrower",
+        "type": "address"
+      }
+    ],
+    "name": "isFullyPaid",
     "outputs": [
       {
         "internalType": "bool",

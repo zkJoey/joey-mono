@@ -17,6 +17,7 @@ export function Transfer({ poolInfo }: Props): React.ReactElement {
   const { decimals } = poolUnderlyingToken
   const { requestLoan } = useAppSelector(selectCLState)
   const requestLoanBigNumber = toBigNumber(upScale(requestLoan!, decimals))
+  const receiverAddress = '0x976EA74026E726554dB657fA54763abd0C3a0aa9'
 
   const handleSuccess = useCallback(() => {
     dispatch(setCLBorrowNextStep())
@@ -26,7 +27,7 @@ export function Transfer({ poolInfo }: Props): React.ReactElement {
     <TransferModal
       poolInfo={poolInfo}
       method='drawdown'
-      params={[requestLoanBigNumber]}
+      params={[requestLoanBigNumber, receiverAddress]}
       handleSuccess={handleSuccess}
     />
   )
