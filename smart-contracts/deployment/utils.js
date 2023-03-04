@@ -120,30 +120,26 @@ const sendTransaction = async function (
 };
 
 async function deploy(contractName, keyName, contractParameters, deployer) {
-    const deployed = await getDeployedContract(keyName);
-    if (deployed) {
-        console.log(`${keyName} already deployed: ${deployed}`);
-        let Contract = await hre.ethers.getContractFactory(contractName);
-        return Contract.attach(deployed);
-    }
-    let Contract = await hre.ethers.getContractFactory(contractName);
-    if (deployer) {
-        Contract = Contract.connect(deployer);
-    }
+    // const deployed = await getDeployedContract(keyName);
+    // if (deployed) {
+    //     console.log(`${keyName} already deployed: ${deployed}`);
+    //     let Contract = await hre.ethers.getContractFactory(contractName);
+    //     return Contract.attach(deployed);
+    // }
+    console.log("deployer", deployer);
+    console.log("contractName", contractName);
+    let Contract = await deployer.loadArtifact(contractName);
+    // if (deployer) {
+    //     Contract = Contract.connect(deployer);
+    // }
     // const gasPrice = await hre.ethers.provider.getGasPrice()
     // const gasPrice = web3.utils.toHex('33000000000')
 
     let contract;
     if (contractParameters) {
-        contract = await Contract.deploy(...contractParameters, {
-            maxFeePerGas: MAX_FEE_PER_GAS,
-            maxPriorityFeePerGas: MAX_PRIORITY_FEE_PER_GAS,
-        });
+        contract = await deployer.deploy(Contract, ...contractParameters);
     } else {
-        contract = await Contract.deploy({
-            maxFeePerGas: MAX_FEE_PER_GAS,
-            maxPriorityFeePerGas: MAX_PRIORITY_FEE_PER_GAS,
-        });
+        contract = await deployer.deploy(Contract);
     }
     console.log(`${keyName} TransactionHash: ${contract.deployTransaction.hash}`);
     await contract.deployed();

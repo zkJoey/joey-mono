@@ -1,8 +1,8 @@
 require("dotenv").config();
-require("hardhat-contract-sizer");
+// require("hardhat-contract-sizer");
 
 require("@nomicfoundation/hardhat-chai-matchers");
-require("@tenderly/hardhat-tenderly");
+// require("@tenderly/hardhat-tenderly");
 
 require("hardhat-gas-reporter");
 require("hardhat-abi-exporter");
@@ -14,6 +14,9 @@ require("solidity-coverage");
 
 require("hardhat-abi-exporter");
 require("dotenv").config();
+
+require("@matterlabs/hardhat-zksync-deploy");
+require("@matterlabs/hardhat-zksync-solc");
 const fs = require("fs");
 
 const EMPTY_URL = "empty url";
@@ -109,7 +112,14 @@ function mnemonic() {
 }
 
 module.exports = {
-    defaultNetwork,
+    zksolc: {
+        version: "1.3.5",
+        compilerSource: "binary",
+        settings: {
+            isSystem: true,
+        },
+    },
+    defaultNetwork: "zkSyncTestnet",
 
     /**
      * gas reporter configuration that let's you know
@@ -129,12 +139,10 @@ module.exports = {
     // Follow the directions, and uncomment the network you wish to deploy to.
 
     networks: {
-        localhost: {
-            url: "http://0.0.0.0:8545",
-            /*
-              notice no mnemonic here? it will just use account 0 of the hardhat node to deploy
-              (you can put in a mnemonic here to set the deployer locally)
-            */
+        zkSyncTestnet: {
+            url: "http://localhost:3050/",
+            ethNetwork: "http://localhost:8545/", // Can also be the RPC URL of the network (e.g. `https://goerli.infura.io/v3/<API_KEY>`)
+            zksync: true,
         },
         rinkeby: {
             url: "https://rinkeby.infura.io/v3/460f40a260564ac4a4f4b3fffb032dad", // <---- YOUR INFURA ID! (or it won't work)

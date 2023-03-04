@@ -20,12 +20,12 @@ contract Custodian {
      * @notice Performs a takeover action on the borrower's account
      * @param borrower address of the borrower to takeover
      */
-    function takeOver(address borrower) external {
+    function takeOver(address borrower, address creditWallet) external {
         // check if credit defaulted
         require(baseCreditPool.isDefaultReady(borrower));
         borrowerContract = borrower;
         // takeover the account based on certain conditions
-        // borrowerContract.receiveOwnership() of the borrowers account
+        // creditWallet.receiveOwnership() of the borrowers account
         // once full credit amount has been recovered, the ownership is transferred back to the borrower
     }
 

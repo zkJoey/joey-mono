@@ -1188,6 +1188,25 @@
         "type": "address"
       }
     ],
+    "name": "isFullyPaid",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "borrower",
+        "type": "address"
+      }
+    ],
     "name": "isLate",
     "outputs": [
       {
