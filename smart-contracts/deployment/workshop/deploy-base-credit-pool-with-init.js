@@ -3,7 +3,7 @@ const {deploy, updateInitilizedContract} = require("../utils.js");
 const {utils, Wallet, Provider} = require("zksync-web3");
 const {Deployer} = require("@matterlabs/hardhat-zksync-deploy");
 
-const RICH_WALLET_PK = "0x7726827caac94a7f9e1b160f7ea819f172f7b6f9d2a97f992c38edeab82d4110";
+const RICH_WALLET_PK = "0xf12e28c0eb1ef4ff90478f6805b68d63737b7f33abfa091601140805da450d93";
 
 async function deployContracts() {
     // await hre.network.provider.send("hardhat_reset")
@@ -11,6 +11,8 @@ async function deployContracts() {
 
     const wallet = new Wallet(RICH_WALLET_PK);
     const provider = new Provider("http://0.0.0.0:8545");
+    console.log("wallet address:", wallet.address);
+    console.log("provider:", provider);
     // const walletL2 = wallet.connect(provider);
     // const deployer = new Deployer(hre, wallet);
     const deployer = new Deployer(hre, wallet);
@@ -28,8 +30,9 @@ async function deployContracts() {
     const pdsService_wallet = new Wallet(RICH_WALLET_PK);
     const pdsService = pdsService_wallet.connect(provider);
 
-    // console.log("ea address:", eaService.address);
+    // console.log("ea address:", eaService.address);x`
 
+    console.log("deploying contracts...");
     const usdc = await deploy("TestToken", "USDC", [], deployer);
     console.log("usdc deployed:", usdc.address);
     const evaluationAgentNFT = await deploy("EvaluationAgentNFT", "EANFT", [], deployer);
