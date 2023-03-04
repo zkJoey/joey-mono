@@ -9,6 +9,7 @@ from huma_signals.adapters.request_network import adapter as request_network_ada
 from huma_signals.adapters.stripe import adapter as stripe_adapter
 from huma_signals.adapters.circle import adapter as circle_adapter
 from huma_signals.adapters.spectral import adapter as spectral_adapter
+from huma_signals.adapters.flock import adapter as flock_adapter
 
 ADAPTER_REGISTRY: Dict[str, Type[models.SignalAdapterBase]] = {
     lending_pools_adapter.LendingPoolAdapter.name: lending_pools_adapter.LendingPoolAdapter,
@@ -19,6 +20,7 @@ ADAPTER_REGISTRY: Dict[str, Type[models.SignalAdapterBase]] = {
     stripe_adapter.StripeAdapter.name: stripe_adapter.StripeAdapter,
     circle_adapter.CircleAdapter.name: circle_adapter.CircleAdapter,
     spectral_adapter.SpectralAdapter.name: spectral_adapter.SpectralAdapter,
+    flock_adapter.FlockAdapter.name: flock_adapter.FlockAdapter,
 }
 
 
