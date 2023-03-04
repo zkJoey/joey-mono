@@ -11,12 +11,10 @@ async function deployContracts() {
         await hre.ethers.getSigners();
 
     const wallet = new Wallet(RICH_WALLET_PK);
-    console.log(wallet);
     // const provider = new Provider("http://0.0.0.0:8545");
     // const walletL2 = wallet.connect(provider);
     // const deployer = new Deployer(hre, wallet);
     const deployer = new Deployer(hre, wallet);
-    console.log("deployer d", deployer);
 
     // console.log("ea address:", eaService.address);
 

@@ -126,8 +126,6 @@ async function deploy(contractName, keyName, contractParameters, deployer) {
     //     let Contract = await hre.ethers.getContractFactory(contractName);
     //     return Contract.attach(deployed);
     // }
-    console.log("deployer", deployer);
-    console.log("contractName", contractName);
     let Contract = await deployer.loadArtifact(contractName);
     // if (deployer) {
     //     Contract = Contract.connect(deployer);
