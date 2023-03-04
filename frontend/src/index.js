@@ -27,6 +27,7 @@ import PayPage from "./pages/PayPage";
 import { zkSync_localhost } from "./lib/chains";
 
 import { WALLET_FACTORY_ADDRESS } from "./contracts/WaletFactory";
+import LoadingFullpage from "./components/ui/LoadingFullpage";
 
 // import {getCreditWalletAddress} from './utils/utils'
 
@@ -59,8 +60,10 @@ const ethereumClient = new EthereumClient(wagmiClient, chains);
 const App = () => {
   const [creditWalletAddress, setCreditWalletAddress] = useState(null);
   const [creditStatus, setCreditStatus] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
   useEffect(() => {
     const getCreditWalletAddress = async () => {
+      setIsLoading(true);
       const provider = new ethers.providers.Web3Provider(window.ethereum);
       const signer = provider.getSigner();
       const address = await signer.getAddress();
@@ -90,7 +93,9 @@ const App = () => {
       console.log("SASD", creditWalletAddress);
       if (creditWalletAddress != 0x00)
         setCreditWalletAddress(creditWalletAddress);
+      setIsLoading(false);
     };
+
     getCreditWalletAddress();
   }, []);
 
@@ -98,6 +103,7 @@ const App = () => {
     <WagmiConfig client={wagmiClient}>
       <React.StrictMode>
         <Router>
+          <LoadingFullpage isLoading={isLoading} />
           <Layout creditWalletAddress={creditWalletAddress}>
             <Routes>
               <Route
