@@ -68,6 +68,8 @@ const App = () => {
   const [creditWalletAddress, setCreditWalletAddress] = useState(null);
   const [creditStatus, setCreditStatus] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
+
+  const [state, setState] = useState(0);
   useEffect(() => {
     const getCreditWalletAddress = async () => {
       setIsLoading(true);
@@ -148,7 +150,7 @@ const App = () => {
                <Route
                 path="/collateral"
                 element={
-                  <CollateralPage
+                  <CollateralPage state={state}
                   />
                 }
               ></Route>
@@ -174,6 +176,8 @@ const App = () => {
                   <PayPage
                     creditStatus={creditStatus}
                     creditWalletAddress={creditWalletAddress}
+                    setState={setState}
+                    state={state}
                   />
                 }
               ></Route>
@@ -189,7 +193,7 @@ const App = () => {
               <Route path="/add-vendor" element={<AddVendor />}></Route>
 
               <Route path="/greeting" element={<DummyGreeter />}></Route>
-              <Route path="/multisig" element={<MultisigPage/>}></Route>
+              <Route path="/multisig" element={<MultisigPage state={state}/>}></Route>
             </Routes>
             <Web3Modal projectId={projectId} ethereumClient={ethereumClient} />
           </Layout>

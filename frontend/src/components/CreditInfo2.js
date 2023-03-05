@@ -3,7 +3,7 @@ import usePoolContract from "../lib/hooks/usePoolContract";
 import React from "react";
 
 
-const MockCreditInfo = ({creditStatus}) => {
+const MockCreditInfo = ({creditStatus, state}) => {
   return (
     <div className="flex flex-col gap-4">
     <div className="grid grid-cols-4 gap-4">
@@ -32,13 +32,20 @@ const MockCreditInfo = ({creditStatus}) => {
         <p className="mt-2 text-lg font-bold text-gray-900 font-mono">9.43%</p>
       </div>
       </div>
-      <div className="grid grid-cols-1 gap-1">
+      <div className={!state?"grid grid-cols-1 gap-1":"grid grid-cols-2 gap-1"}>
       <div className="text-center">
         <p className="text-sm font-medium text-gray-500 uppercase tracking-wide">
           Credit Limit
         </p>
         <p className="mt-2 text-lg font-bold text-gray-900 font-mono">$2489.5</p>
       </div>
+
+      {state ? <div className="text-center">
+        <p className="text-sm font-medium text-gray-500 uppercase tracking-wide">
+          Amount used
+        </p>
+        <p className="mt-2 text-lg font-bold text-gray-900 font-mono">$5,000</p>
+      </div>:<></>}
 
       </div>
       </div>

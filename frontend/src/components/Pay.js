@@ -8,14 +8,23 @@ import Input from "./ui/Input";
 
 import usePoolContract from "../lib/hooks/usePoolContract";
 
-const Pay = ({ creditWalletAddress, vendorAddress }) => {
+// import useNavigate
+import { useNavigate } from 'react-router-dom';
+
+import MockCreditInfo from "../components/CreditInfo2";
+
+const Pay = ({ creditWalletAddress, vendorAddress, setState, state }) => {
   const [walletAddress , setWalletAddress] = useState(vendorAddress? vendorAddress : "");
   const [amount, setAmount] = useState("");
   console.log("AAA creditWalletAddress", creditWalletAddress);
   const { callDrawdown } = usePoolContract(creditWalletAddress);
   const [isSending, setIsSending] = useState(false);
 
+  const navigate = useNavigate();
   const handlePay = async () => {
+    // alert("Sending " + amount + " to " + walletAddress)
+    setState(1);
+    navigate('/multisig');
     setIsSending(true);
     // convert amount to gwei
     const amountInGwei = amount * 10 ** 6;
@@ -25,6 +34,7 @@ const Pay = ({ creditWalletAddress, vendorAddress }) => {
   }
 
   return (
+    <>
     <Container >
       {/* <CreditInfo creditStatus={creditStatus} /> */}
       <Input
@@ -39,6 +49,7 @@ const Pay = ({ creditWalletAddress, vendorAddress }) => {
       />
       <Button type="button" variant='primary' onClick={handlePay} loading={isSending}>Pay</Button>
     </Container>
+    </>
   );
 };
 

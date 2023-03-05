@@ -12,7 +12,7 @@ import axios from "axios";
 import ModalOpener from "../components/ModalOpener";
 import MockCreditInfo from "../components/CreditInfo2";
 
-const CollateralPage = ({ isCollateral }) => {
+const CollateralPage = ({ isCollateral, state }) => {
   const [creditLine, setCreditLine] = useState(0);
   const [isChecking, setIsChecking] = useState(false);
   const [stripeApiKey, setStripeApiKey] = useState("");
@@ -30,6 +30,7 @@ const CollateralPage = ({ isCollateral }) => {
   return (
     <div className="items-center justify-center pt-32">
       
+      
     <div className="flex flex-col items-center justify-center text-center gap-y-4">
 
     <h1 className="text-2xl font-bold">My Accounts Receivables</h1>
@@ -40,9 +41,9 @@ const CollateralPage = ({ isCollateral }) => {
       <img className="max-h-64" src="https://i.ibb.co/Kj4RryQ/invoice.png" alt="Placeholder 1"/>
       </div>
 
-      <MockCreditInfo />
+      <MockCreditInfo state={state} />
 
-      <Button variant="primary" onClick={checkCreditLine} isLoading={isChecking}>Borrow</Button>
+      {/* <Button variant="primary" onClick={checkCreditLine} isLoading={isChecking}>Borrow</Button> */}
 
     </div>
     </div>
