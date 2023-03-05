@@ -3,30 +3,44 @@ const {deploy, updateInitilizedContract} = require("../utils.js");
 const {utils, Wallet, Provider} = require("zksync-web3");
 const {Deployer} = require("@matterlabs/hardhat-zksync-deploy");
 
-// const RICH_WALLET_PK = "0xf12e28c0eb1ef4ff90478f6805b68d63737b7f33abfa091601140805da450d93";
-// private keys 
-const RICH0 = "0x7726827caac94a7f9e1b160f7ea819f172f7b6f9d2a97f992c38edeab82d4110";
-const RICH1 = "0xac1e735be8536c6534bb4f17f06f6afc73b2b5ba84ac2cfb12f7461b20c0bbe3";
-const RICH2 = "0xd293c684d884d56f8d6abd64fc76757d3664904e309a0645baf8522ab6366d9e"
-const RICH3 = "0x850683b40d4a740aa6e745f889a6fdc8327be76e122f5aba645a5b02d0248db8";
-const RICH4 = "0x850683b40d4a740aa6e745f889a6fdc8327be76e122f5aba645a5b02d0248db8";
-const RICH5 = "0xf12e28c0eb1ef4ff90478f6805b68d63737b7f33abfa091601140805da450d93";
-const RICH6 = "0xe667e57a9b8aaa6709e51ff7d093f1c5b73b63f9987e4ab4aa9a5c699e024ee8";
-const RICH7 = "0x28a574ab2de8a00364d5dd4b07c4f2f574ef7fcc2a86a197f65abaec836d1959";
-const RICH8 = "0x74d8b3a188f7260f67698eb44da07397a298df5427df681ef68c45b34b61f998";
-const RICH9 = "0xbe79721778b48bcc679b78edac0ce48306a8578186ffcb9f2ee455ae6efeace1";
-const RICH10 = "0x3eb15da85647edd9a1159a4a13b9e7c56877c4eb33f614546d4db06a51868b1c";
+// // const RICH_WALLET_PK = "0xf12e28c0eb1ef4ff90478f6805b68d63737b7f33abfa091601140805da450d93";
+// // private keys 
+
+// //Local private keys only for testing
+// // const RICH0 = "0x7726827caac94a7f9e1b160f7ea819f172f7b6f9d2a97f992c38edeab82d4110";
+// // const RICH1 = "0xac1e735be8536c6534bb4f17f06f6afc73b2b5ba84ac2cfb12f7461b20c0bbe3";
+// // const RICH2 = "0xd293c684d884d56f8d6abd64fc76757d3664904e309a0645baf8522ab6366d9e"
+// // const RICH3 = "0x850683b40d4a740aa6e745f889a6fdc8327be76e122f5aba645a5b02d0248db8";
+// // const RICH4 = "0x850683b40d4a740aa6e745f889a6fdc8327be76e122f5aba645a5b02d0248db8";
+// // const RICH5 = "0xf12e28c0eb1ef4ff90478f6805b68d63737b7f33abfa091601140805da450d93";
+// // const RICH6 = "0xe667e57a9b8aaa6709e51ff7d093f1c5b73b63f9987e4ab4aa9a5c699e024ee8";
+// // const RICH7 = "0x28a574ab2de8a00364d5dd4b07c4f2f574ef7fcc2a86a197f65abaec836d1959";
+// // const RICH8 = "0x74d8b3a188f7260f67698eb44da07397a298df5427df681ef68c45b34b61f998";
+// // const RICH9 = "0xbe79721778b48bcc679b78edac0ce48306a8578186ffcb9f2ee455ae6efeace1";
+// // const RICH10 = "0x3eb15da85647edd9a1159a4a13b9e7c56877c4eb33f614546d4db06a51868b1c";
 
 
 async function deployContracts() {
     // await hre.network.provider.send("hardhat_reset")
     // const [borrower] = await hre.ethers.getSigners();
 
-    const privateKey = process.env.PRIVATE_KEY ?? 'null';
-    const wallet = new Wallet(privateKey);
+    const privateKey1 = process.env.PRIVATE_KEY1 ?? 'null';
+    const wallet = new Wallet(privateKey1);
 
     const privateKey2 = process.env.PRIVATE_KEY2 ?? 'null';
     const wallet2 = new Wallet(privateKey2);
+
+    const privateKey3 = process.env.PRIVATE_KEY3 ?? 'null';
+    const wallet3 = new Wallet(privateKey3);
+    const privateKey4 = process.env.PRIVATE_KEY4 ?? 'null';
+    const wallet4 = new Wallet(privateKey4);
+    const privateKey5 = process.env.PRIVATE_KEY5 ?? 'null';
+    const wallet5 = new Wallet(privateKey5);
+    const privateKey6 = process.env.PRIVATE_KEY6 ?? 'null';
+    const wallet6 = new Wallet(privateKey6);
+    const privateKey7 = process.env.PRIVATE_KEY7 ?? 'null';
+    const wallet7 = new Wallet(privateKey7);
+   
 
 
     const provider = new Provider("https://zksync2-testnet.zksync.dev");
@@ -34,35 +48,35 @@ async function deployContracts() {
     console.log("provider:", provider);
     const deployer = new Deployer(hre, wallet);
 
-    const treasury_wallet = new Wallet(privateKey2); // to change 
+    const treasury_wallet = new Wallet(privateKey1); 
     const treasury = treasury_wallet.connect(provider); 
-    const lender_wallet = new Wallet(privateKey);
+    const lender_wallet = new Wallet(privateKey2);
     const lender = lender_wallet.connect(provider);
-    const ea_wallet = new Wallet(privateKey);
+    const ea_wallet = new Wallet(privateKey3);
     const ea = ea_wallet.connect(provider);
-    const eaService_wallet = new Wallet(privateKey);
+    const eaService_wallet = new Wallet(privateKey4);
     const eaService = eaService_wallet.connect(provider);
-    const proxyOwner_wallet = new Wallet(privateKey);
+    const proxyOwner_wallet = new Wallet(privateKey5);
     const proxyOwner = proxyOwner_wallet.connect(provider);
-    const pdsService_wallet = new Wallet(privateKey);
+    const pdsService_wallet = new Wallet(privateKey6);
     const pdsService = pdsService_wallet.connect(provider);
-    const receiver_wallet = new Wallet(privateKey);
+    const receiver_wallet = new Wallet(privateKey7);
     const receiver = receiver_wallet.connect(provider);
     
 
 
     const USDC_L2_ADDRESS = "0x0faF6df7054946141266420b43783387A78d82A9";
 
-    console.log(await provider.getBalance(RICH1, "latest", USDC_L2_ADDRESS));
-    console.log(await provider.getBalance(RICH2, "latest", USDC_L2_ADDRESS));
-    console.log(await provider.getBalance(RICH3, "latest", USDC_L2_ADDRESS));
-    console.log(await provider.getBalance(RICH4, "latest", USDC_L2_ADDRESS));
-    console.log(await provider.getBalance(RICH5, "latest", USDC_L2_ADDRESS));
-    console.log(await provider.getBalance(RICH6, "latest", USDC_L2_ADDRESS));
-    console.log(await provider.getBalance(RICH7, "latest", USDC_L2_ADDRESS));
-    console.log(await provider.getBalance(RICH8, "latest", USDC_L2_ADDRESS));
-    console.log(await provider.getBalance(RICH9, "latest", USDC_L2_ADDRESS));
-    console.log(await provider.getBalance(RICH10, "latest", USDC_L2_ADDRESS));
+    // console.log(await provider.getBalance(RICH1, "latest", USDC_L2_ADDRESS));
+    // console.log(await provider.getBalance(RICH2, "latest", USDC_L2_ADDRESS));
+    // console.log(await provider.getBalance(RICH3, "latest", USDC_L2_ADDRESS));
+    // console.log(await provider.getBalance(RICH4, "latest", USDC_L2_ADDRESS));
+    // console.log(await provider.getBalance(RICH5, "latest", USDC_L2_ADDRESS));
+    // console.log(await provider.getBalance(RICH6, "latest", USDC_L2_ADDRESS));
+    // console.log(await provider.getBalance(RICH7, "latest", USDC_L2_ADDRESS));
+    // console.log(await provider.getBalance(RICH8, "latest", USDC_L2_ADDRESS));
+    // console.log(await provider.getBalance(RICH9, "latest", USDC_L2_ADDRESS));
+    // console.log(await provider.getBalance(RICH10, "latest", USDC_L2_ADDRESS));
 
 
 
@@ -235,10 +249,11 @@ async function deployContracts() {
         
 
     const borrowAmount = BN.from(1).mul(BN.from(10).pow(BN.from(decimals)));
-    const x = await pool.drawdown(borrowAmount, receiver.address, {gasLimit: 1000000});
+    const x = await pool.drawdown(borrowAmount, "0x8Cb9C0b4060Ec96E73e2d4f63D1E4b72f2499c7F", {gasLimit: 1000000});
     console.log(receiver.address);
     console.log(x);
     console.log("drawdown done");
+
 
 }
 
