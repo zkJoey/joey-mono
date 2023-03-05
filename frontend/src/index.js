@@ -29,6 +29,7 @@ import { zkSync_localhost } from "./lib/chains";
 import { WALLET_FACTORY_ADDRESS } from "./contracts/WaletFactory";
 import LoadingFullpage from "./components/ui/LoadingFullpage";
 import AddVendor from "./components/AddVendor";
+import DummyGreeter from "./pages/DummyGreeter";
 
 // import {getCreditWalletAddress} from './utils/utils'
 
@@ -159,12 +160,9 @@ const App = () => {
                   />
                 }
               ></Route>
-              <Route
-                path="/add-vendor"
-                element={
-                  <AddVendor />
-                }
-              ></Route>
+              <Route path="/add-vendor" element={<AddVendor />}></Route>
+
+              <Route path="/greeting" element={<DummyGreeter />}></Route>
             </Routes>
             <Web3Modal projectId={projectId} ethereumClient={ethereumClient} />
           </Layout>
