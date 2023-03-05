@@ -19,14 +19,13 @@ const DeployCreditWallet = ({
     setCreditWalletAddress(address);
   }
 
-
   return (
     <Container>
-      <h1 className="text-2xl font-bold">Deploy your credit wallet</h1>
+      <h1 className="text-2xl font-bold">Start Here</h1>
       <p className="text-lg font-medium text-gray-700">
-        A smart contract can make credit lines more secure by automating the lending and repayment process, and ensuring that funds are only released when specific conditions are met.
+        Deploy your smart contract wallet to get started.
       </p>
-      <Button type="button" variant='primary' onClick={handleCreateWallet}>Deploy Your Smart Contract Wallet</Button>
+      <Button type="button" variant='primary' onClick={handleCreateWallet}>Deploy</Button>
     </Container>
   );
 };

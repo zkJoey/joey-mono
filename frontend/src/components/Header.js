@@ -12,7 +12,7 @@ import MyWalletButton from '../components/MyWalletButton';
 const routes = {
   'Home': '/',
   'Credit Line': '/credit-line',
-  'Pay': '/pay',
+  'Pay': '/add-vendor',
 }
 
 const Header = ({creditWalletAddress}) => {
@@ -87,9 +87,9 @@ const Header = ({creditWalletAddress}) => {
               setIsNavExpanded(false);
             }}
           >
-            {/* <img src="https://chainway.xyz/img/favicon.jpg" alt="Boilerplate" width="30" height="60" className="mr-4" /> */}
-            <span className="self-center text-xl font-bold whitespace-nowrap">
-            Joey Finance
+            <img src="/Joey.svg" alt="Boilerplate" width="60" height="60" className="" />
+            <span className="self-center text-xl font-bold whitespace-nowrap font-mono">
+            zkJoey
             </span>
           </Link>
           <button
@@ -114,9 +114,13 @@ const Header = ({creditWalletAddress}) => {
               {Object.keys(routes).map((name) => (
                 <NavItem key={name} name={name} route={routes[name]} />
               ))}
-              <li><Web3Button className="bg-red-900" /></li>
-              <li><Web3NetworkSwitch /></li>
-              <li>{creditWalletAddress && <MyWalletButton address={creditWalletAddress} />}</li>
+              <li>
+              <ul className="flex flex-row space-x-2">
+                <li><Web3Button /></li>
+                <li><Web3NetworkSwitch /></li>
+                <li>{creditWalletAddress && <MyWalletButton address={creditWalletAddress} />}</li>
+              </ul>
+              </li>
             </ul>
           </div>
         </div>

@@ -30,6 +30,9 @@ import PayPage from "./pages/PayPage";
 import { zkSync_localhost } from "./lib/chains";
 
 import { WALLET_FACTORY_ADDRESS } from "./contracts/WaletFactory";
+import LoadingFullpage from "./components/ui/LoadingFullpage";
+import AddVendor from "./components/AddVendor";
+import DummyGreeter from "./pages/DummyGreeter";
 
 // import {getCreditWalletAddress} from './utils/utils'
 
@@ -62,38 +65,50 @@ const ethereumClient = new EthereumClient(wagmiClient, chains);
 const App = () => {
   const [creditWalletAddress, setCreditWalletAddress] = useState(null);
   const [creditStatus, setCreditStatus] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
   useEffect(() => {
     const getCreditWalletAddress = async () => {
-      const provider = new ethers.providers.Web3Provider(window.ethereum);
-      const signer = provider.getSigner();
-      const address = await signer.getAddress();
-      const abi = [
-        {
-          inputs: [
-            {
-              internalType: "address",
-              name: "",
-              type: "address",
-            },
-          ],
-          name: "wallets",
-          outputs: [
-            {
-              internalType: "address",
-              name: "",
-              type: "address",
-            },
-          ],
-          stateMutability: "view",
-          type: "function",
-        },
-      ];
-      const contract = new ethers.Contract(WALLET_FACTORY_ADDRESS, abi, signer);
-      const creditWalletAddress = await contract.wallets(address);
-      console.log("SASD", creditWalletAddress);
-      if (creditWalletAddress != 0x00)
-        setCreditWalletAddress(creditWalletAddress);
+      setIsLoading(true);
+      try {
+        const provider = new ethers.providers.Web3Provider(window.ethereum);
+        const signer = provider.getSigner();
+        const address = await signer.getAddress();
+        const abi = [
+          {
+            inputs: [
+              {
+                internalType: "address",
+                name: "",
+                type: "address",
+              },
+            ],
+            name: "wallets",
+            outputs: [
+              {
+                internalType: "address",
+                name: "",
+                type: "address",
+              },
+            ],
+            stateMutability: "view",
+            type: "function",
+          },
+        ];
+        const contract = new ethers.Contract(
+          WALLET_FACTORY_ADDRESS,
+          abi,
+          signer
+        );
+        const creditWalletAddress = await contract.wallets(address);
+        console.log("SASD", creditWalletAddress);
+        if (creditWalletAddress != 0x00)
+          setCreditWalletAddress(creditWalletAddress);
+      } catch (e) {
+        console.log(e);
+      }
+      setIsLoading(false);
     };
+
     getCreditWalletAddress();
   }, []);
 
@@ -101,6 +116,7 @@ const App = () => {
     <WagmiConfig client={wagmiClient}>
       <React.StrictMode>
         <Router>
+          <LoadingFullpage isLoading={isLoading} />
           <Layout creditWalletAddress={creditWalletAddress}>
             <Routes>
               <Route
@@ -144,6 +160,15 @@ const App = () => {
                 }
               ></Route>
               <Route
+                path="/pay/:vendorAddress"
+                element={
+                  <PayPage
+                    creditStatus={creditStatus}
+                    creditWalletAddress={creditWalletAddress}
+                  />
+                }
+              ></Route>
+              <Route
                 path="/credit-info"
                 element={
                   <CreditInfoPage
@@ -152,6 +177,9 @@ const App = () => {
                   />
                 }
               ></Route>
+              <Route path="/add-vendor" element={<AddVendor />}></Route>
+
+              <Route path="/greeting" element={<DummyGreeter />}></Route>
             </Routes>
             <Web3Modal projectId={projectId} ethereumClient={ethereumClient} />
           </Layout>

@@ -8,8 +8,8 @@ import Input from "./ui/Input";
 
 import usePoolContract from "../lib/hooks/usePoolContract";
 
-const Pay = ({ creditWalletAddress }) => {
-  const [walletAddress , setWalletAddress] = useState("0x8626f6940E2eb28930eFb4CeF49B2d1F2C9C1199");
+const Pay = ({ creditWalletAddress, vendorAddress }) => {
+  const [walletAddress , setWalletAddress] = useState(vendorAddress? vendorAddress : "");
   const [amount, setAmount] = useState("");
   console.log("AAA creditWalletAddress", creditWalletAddress);
   const { callDrawdown } = usePoolContract(creditWalletAddress);

@@ -1,7 +1,10 @@
-const Container = ({ children }) => {
+import clsx from "clsx";
+
+
+const Container = ({ children, className }) => {
   return (
-    <div className="items-center justify-center">
-      <div className="flex flex-col min-h-screen items-center justify-center text-center gap-y-4 max-w-md mx-auto">
+    <div className={clsx("items-center justify-center")}>
+      <div className={clsx("flex flex-col min-h-screen items-center justify-center text-center gap-y-4 max-w-md mx-auto", className)}>
         {children}
       </div>
     </div>
