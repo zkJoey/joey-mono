@@ -59,7 +59,7 @@ const CreditInfo = ({ creditWalletAddress }) => {
         <ExampleComponent />
       </div>
       <Button type="button" variant="primary">Borrow</Button>
-      <div className="border border-black rounded-lg w-3/10 p-4 text-center">
+      <div className="border-dashed border-2 border-black rounded-lg w-3/10 p-4 text-center">
         <p>This is a disclaimer text</p>
       </div>
     </div>
