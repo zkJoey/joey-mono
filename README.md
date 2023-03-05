@@ -1,5 +1,6 @@
 ### Welcome to Joey Finance!
-![Joey](https://user-images.githubusercontent.com/7723863/222954724-a148422d-948f-4896-8347-ce87b08a0453.jpg)
+![Joey small](https://user-images.githubusercontent.com/7723863/222958840-5ebef8ad-7db7-4670-aa51-48bdfbbcd244.jpg)
+
 
 # 👀 Problem
 
