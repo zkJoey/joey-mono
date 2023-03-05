@@ -9,6 +9,7 @@ import { EVALUATION_AGENT_API } from "../lib/config";
 // axios
 import axios from "axios";
 import ModalOpener from "../components/ModalOpener";
+import { useNavigate } from "react-router-dom";
 
 const CreditLine = ({ creditWalletAddress, setCreditStatus }) => {
   const [creditLine, setCreditLine] = useState(0);
@@ -16,8 +17,11 @@ const CreditLine = ({ creditWalletAddress, setCreditStatus }) => {
   const [stripeApiKey, setStripeApiKey] = useState("");
   const [circleApiKey, setCircleApiKey] = useState("");
 
+  const navigate = useNavigate();
+
   const checkCreditLine = async () => {
     setIsChecking(true);
+    try{
     const body = {
       poolAddress: BASE_CREDIT_POOL_ADDRESS,
       borrowerWalletAddress: creditWalletAddress,
@@ -40,7 +44,14 @@ const CreditLine = ({ creditWalletAddress, setCreditStatus }) => {
     // const creditLine = await ethereumClient.getAvailableCreditLine();
     const creditLine = 10;
     setCreditLine(creditLine);
+    }catch(e){
+      console.log("error", e);
+    }
     setIsChecking(false);
+
+    // navigate to /credit-optns
+    navigate("/credit-optns");
+
   };
 
   return (

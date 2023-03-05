@@ -10,17 +10,20 @@ import Container from '../components/ui/Container';
 const DeployCreditWallet = ({
   setCreditWalletAddress
 }) => {
+  const [isDeploying, setIsDeploying] = useState(false);
 
   const { createWallet } = useWalletFactory();
   const location = useLocation();
   const navigate = useNavigate();
   
   const handleCreateWallet = async () => {
+    setIsDeploying(true);
     const address = await createWallet();
     console.log("address: " + address)
     setCreditWalletAddress(address);
-    navigate('/credit-optns', { state: { multiSigAddr: address }});
+    navigate('/credit-line', { state: { multiSigAddr: address }});
     console.log("BC");
+    setIsDeploying(false);
 
   }
 
@@ -30,7 +33,7 @@ const DeployCreditWallet = ({
       <p className="text-lg font-medium text-gray-700">
         Deploy your smart contract wallet to get started.
       </p>
-      <Button type="button" variant='primary' onClick={handleCreateWallet}>Deploy</Button>
+      <Button type="button" variant='primary' loading={isDeploying} onClick={handleCreateWallet}>Deploy</Button>
     </Container>
   );
 };

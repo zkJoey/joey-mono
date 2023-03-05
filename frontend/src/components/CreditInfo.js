@@ -89,7 +89,7 @@ const CreditInfo = ({ creditWalletAddress }) => {
   // }
   return (
     <div className="container mx-auto">
-      <div className="flex flex-col items-center justify-center min-h-screen">
+      <div className="flex flex-col items-center justify-center">
         <div className="flex flex-col items-center justify-center">
           <h1 className="text-2xl font-bold">Your credit line</h1>
           <ExampleComponent creditStatus={creditStatus} />
