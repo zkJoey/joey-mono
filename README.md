@@ -413,3 +413,22 @@ New RPC URL: http://localhost:3050/
 Chain ID: 270
 Currency Symbol: ETH
 ```
+
+
+# Deployed contracts on [zkSync Era Goerli](https://goerli.explorer.zksync.io/)
+
+[USDC](https://goerli.explorer.zksync.io/address/0xeD8b31e469EAEc22239F83B5aFFbc9C91f2D954f)
+[EANFT](https://goerli.explorer.zksync.io/address/0x847DCd9ce023fc0e9502A80199E4d2200B3c833f)
+[humaConfig](https://goerli.explorer.zksync.io/address/0xE3128A8d9C44Bf9b98Ab7679dcE3536c1A1CD47c)
+[BaseCreditPoolFeeManager](https://goerli.explorer.zksync.io/address/0xc6c6e0C323af61A75733c8A3078394DF4B7F7fAe)
+[feeManager](https://goerli.explorer.zksync.io/address/0xc6c6e0C323af61A75733c8A3078394DF4B7F7fAe)
+[BaseCreditHDTImpl](https://goerli.explorer.zksync.io/address/0xa6a018bA78e533baB7afab25b4CE50d0c18f786F)
+[hdtImpl](https://goerli.explorer.zksync.io/address/0xa6a018bA78e533baB7afab25b4CE50d0c18f786F)
+[hdtProxy](https://goerli.explorer.zksync.io/address/0x05AeBC5BEe1B7363eecC3d50D3cDe05e03dac780)
+[BaseCreditPoolConfig](https://goerli.explorer.zksync.io/address/0xed2F62c1f8d82e2F5e35B88fdB973BAE631AE767)
+[poolConfig](https://goerli.explorer.zksync.io/address/0xed2F62c1f8d82e2F5e35B88fdB973BAE631AE767)
+[BaseCreditPoolImpl](https://goerli.explorer.zksync.io/address/0x85451b0c49CE4dA33E6e8E518BBa2bb6900d1554)
+[poolProxy address](https://goerli.explorer.zksync.io/address/0xb240DcB39C07BbdF722CF2A897Ccbd5F2598543F)
+[hdt address attached](https://goerli.explorer.zksync.io/address/0x05AeBC5BEe1B7363eecC3d50D3cDe05e03dac780)
+[hdt.initialize](https://goerli.explorer.zksync.io/address/0x05AeBC5BEe1B7363eecC3d50D3cDe05e03dac780)
+
