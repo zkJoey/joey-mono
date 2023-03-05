@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { ethers } from 'ethers';
 
 
@@ -12,11 +12,16 @@ const DeployCreditWallet = ({
 }) => {
 
   const { createWallet } = useWalletFactory();
+  const location = useLocation();
+  const navigate = useNavigate();
   
   const handleCreateWallet = async () => {
     const address = await createWallet();
     console.log("address: " + address)
     setCreditWalletAddress(address);
+    navigate('/credit-optns', { state: { multiSigAddr: address }});
+    console.log("BC");
+
   }
 
   return (
