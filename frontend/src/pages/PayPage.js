@@ -3,7 +3,7 @@ import Pay from "../components/Pay";
 //useParams
 import { useParams } from "react-router-dom";
 import DummyGreeter from "./DummyGreeter";
-const PayPage = ({ creditWalletAddress }) => {
+const PayPage = ({ creditWalletAddress, setState, state }) => {
   let { vendorAddress } = useParams();
   if (creditWalletAddress == null) {
     console.log("Loading ", creditWalletAddress);
@@ -15,6 +15,8 @@ const PayPage = ({ creditWalletAddress }) => {
       <Pay
         vendorAddress={vendorAddress}
         creditWalletAddress={creditWalletAddress}
+        setState={setState}
+        state={state}
       />
     </>
   );

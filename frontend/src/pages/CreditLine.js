@@ -47,7 +47,7 @@ const CreditLine = ({ creditWalletAddress, setCreditStatus }) => {
       console.log(e);
     }
     setIsChecking(false);
-    navigate('/credit-optns');
+    navigate('/credit');
   };
 
   return (
