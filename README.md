@@ -57,7 +57,7 @@ In case of late or default on repayments of the credit, protocol takes ownership
 https://www.figma.com/file/xcRfMLTCYX1VMqynL2JeyK/Joey-Finance?node-id=0%3A1&t=mbUVKwGjPf2xoa4L-1
 
 ## Flows
-![image](https://user-images.githubusercontent.com/7723863/222954854-a2435c36-dbf4-4c88-ba41-feacf942f4bc.png)
+![flows](https://user-images.githubusercontent.com/7723863/222959415-2a9fc0a7-a94c-43e9-a15d-92ee2dda398c.jpg)
 
 ## Bounties
 ### ETHDenver DeFi Track 
