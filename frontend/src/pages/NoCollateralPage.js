@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import React from "react";
 import Button from "../components/ui/Button";
+import { Link } from "react-router-dom";
 
 
 const ExampleComponent = () => {
@@ -53,14 +54,16 @@ const CreditInfo = ({ creditWalletAddress }) => {
   // }
   return (
     <div className="container mx-auto">
-    <div className="flex flex-col items-center justify-center min-h-screen">
+    <div className="flex flex-col items-center justify-center min-h-screen space-y-4">
       <div className="flex flex-col items-center justify-center space-y-4">
         <h1 className="text-2xl font-bold pb-8">Your credit line</h1>
         <ExampleComponent />
       </div>
+      <Link to="/multisig">
       <Button type="button" variant="primary">Borrow</Button>
-      <div className="border border-black rounded-lg w-3/10 p-4 text-center">
-        <p>This is a disclaimer text</p>
+      </Link>
+      <div className="border border-black border-dashed rounded-lg w-3/10 p-4 text-center">
+        <p>Your borrower require collateral from your guarantor.</p>
       </div>
     </div>
   </div>
