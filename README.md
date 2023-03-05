@@ -91,7 +91,8 @@ https://github.com/credit-wallet/AA-zkysync-updated/blob/main/contracts/AAFactor
 https://github.com/credit-wallet/SimpleAA
 
 ### Circle: 
-- receive payment signals from the Stripe Business account and pay into the pool via Circle
+- receive payment signals from the Stripe Business account
+https://github.com/credit-wallet/joey-mono/tree/main/signal-adapters/huma_signals/adapters/circle
 
 ### ZkBob
 - business can pay directly from the credit pool via ZKBob to protect business sensitive vendor information
