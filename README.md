@@ -39,7 +39,6 @@ In case of late or default on repayments of the credit, protocol takes ownership
 - Dapp (React) using Web3Modal
 - Multisig Account Abstraction for the credit wallet, with second sig for potential guarantor to co-sign on the credit line
 - Deployed on ZKSync
-- Integrates Circle (customer of our user makes payments to the credit wallet)
 - Signal Adapter (python app) for Huma to get data from:
 	- Circle Business Account 
 	- Stripe
