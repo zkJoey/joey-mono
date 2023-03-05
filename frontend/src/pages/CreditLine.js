@@ -3,6 +3,7 @@ import { useState } from "react";
 import Button from "../components/ui/Button";
 import Input from "../components/ui/Input";
 import Container from "../components/ui/Container";
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 import { BASE_CREDIT_POOL_ADDRESS } from "../contracts/PoolContract";
 import { EVALUATION_AGENT_API } from "../lib/config";
@@ -15,9 +16,11 @@ const CreditLine = ({ creditWalletAddress, setCreditStatus }) => {
   const [isChecking, setIsChecking] = useState(false);
   const [stripeApiKey, setStripeApiKey] = useState("");
   const [circleApiKey, setCircleApiKey] = useState("");
+  const navigate = useNavigate();
 
   const checkCreditLine = async () => {
     setIsChecking(true);
+    try{
     const body = {
       poolAddress: BASE_CREDIT_POOL_ADDRESS,
       borrowerWalletAddress: creditWalletAddress,
@@ -40,7 +43,11 @@ const CreditLine = ({ creditWalletAddress, setCreditStatus }) => {
     // const creditLine = await ethereumClient.getAvailableCreditLine();
     const creditLine = 10;
     setCreditLine(creditLine);
+    } catch (e) {
+      console.log(e);
+    }
     setIsChecking(false);
+    navigate('/credit-optns');
   };
 
   return (

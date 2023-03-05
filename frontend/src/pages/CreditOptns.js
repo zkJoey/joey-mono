@@ -42,7 +42,9 @@ const CreditOptns = () => {
           </Button>
           </Link>
 
-          <Link>
+          <Link to={{
+            pathname: "/no-collateral",
+          }}>
           <Button type="button" size="lg" 
           className="bg-blue-600 hover:bg-blue-700" 
           style={{flex: 1}}
