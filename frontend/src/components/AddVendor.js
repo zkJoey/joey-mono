@@ -69,9 +69,11 @@ const AddVendor = () => {
               <div className="basis-2/5 text-lg font-medium text-gray-700">
                 {ShortenAddress(vendor.address)}
               </div>
+              <Link to={"/pay/" + vendor.address}>
               <Button className="basis-1/5" type="button" variant="primary">
-                <Link to={"/pay/" + vendor.address}>Pay</Link>
+                Pay
               </Button>
+              </Link>
             </div>
           ))}
         </div>

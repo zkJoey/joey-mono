@@ -13,6 +13,7 @@ import DeployCreditWallet from "./pages/DeployCreditWallet";
 import CreditLine from "./pages/CreditLine";
 import CreditOptns from "./pages/CreditOptns"
 import CollateralPage from "./pages/CollateralPage"
+import MultisigPage from "./pages/MultisigPage"
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
@@ -180,6 +181,8 @@ const App = () => {
               <Route path="/add-vendor" element={<AddVendor />}></Route>
 
               <Route path="/greeting" element={<DummyGreeter />}></Route>
+
+              <Route path="/multisig" element={<MultisigPage />} />
             </Routes>
             <Web3Modal projectId={projectId} ethereumClient={ethereumClient} />
           </Layout>
