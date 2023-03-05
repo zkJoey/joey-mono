@@ -4,7 +4,7 @@
 
 # 👀 Problem
 
-- At the moment it’s difficult for web3 companies/entities to receive funding and loans for growth against the on-chain (and off-chain) revenue. For the space the grow, funding is key. Traditional financial institutions do not have the know-how to serve them.
+- Currently, it's difficult for web3 companies/entities to receive funding and loans for growth against the on-chain (and off-chain) revenue. For the space to grow, funding is vital. Unfortunately, traditional financial institutions do not have the know-how to serve them.
     - Types of customers
         - content creators in Web3
         - Web3 companies selling to Web2/3
@@ -12,32 +12,32 @@
         - Consumer
         - Science
         - B2B
-- Today, each wallet functions as a debit card. We envision a credit line for every wallet so that people can borrow or spend as needed, similar to a credit card in real life.
-    - a business could have revolving credit facility based on the on and offchain revenue underwriting
-    - individuals could have on-chain credit card (wallet), with a limit linked and signalled against their off-chain credit score for example
+- Today, each wallet functions as a debit card. We envision a credit line for every wallet so people can borrow or spend as needed, similar to a credit card in real life.
+    - a business could have a revolving credit facility based on the on and off-chain revenue underwriting
+    - individuals could have an on-chain credit card (wallet) with a limit linked and signalled against their off-chain credit score, for example
 
 ---
 
 ## Project Description
 
-Today, each wallet functions as a debit card. We envision a credit line for every wallet so that people can borrow or spend as needed, similar to a credit card in real life.
+Today, each wallet functions as a debit card. We envision a credit line for every wallet so people can borrow or spend as needed, similar to a credit card in real life.
 
-Credit Wallet built using multisig Account Abstraction on ZKSync
+Credit Wallet built using multi-sig Account Abstraction on ZKSync
 
-Business or individuals can have credit facility underwritten by on- and off-chain signals utilising Huma Protocol
+Businesses or individuals can have credit facilities underwritten by on- and off-chain signals utilizing Huma Protocol
 
 - data sources - Circle Business Account, Stripe, Request
 
 - credit scoring - Spectral, Flock
 
-Users can make payments to the vendors and sellers directly from the Huma Pool via ZKBob to keep vendor details private
+Users can make payments to the vendors and sellers directly from the Huma Pool via ZKBob to keep vendor details private.
 
-In case of late or default on repayments of the credit, protocol takes ownership of the revenue receiving contracts
+In case of late or default on repayments of the credit, the protocol takes ownership of the revenue-receiving contracts.
 
 
 ## Stack
 - Dapp (React) using Web3Modal
-- Multisig Account Abstraction for the credit wallet, with second sig for potential guarantor to co-sign on the credit line
+- Multisig Account Abstraction for the credit wallet, with second sig for a potential guarantor to co-sign on the credit line
 - Deployed on ZKSync
 - Signal Adapter (python app) for Huma to get data from:
 	- Circle Business Account 
@@ -62,13 +62,13 @@ https://www.figma.com/file/xcRfMLTCYX1VMqynL2JeyK/Joey-Finance?node-id=0%3A1&t=m
 ### ETHDenver DeFi Track 
 
 ### Huma: A credit line for every wallet
-- We build entire underwriting of the credit wallet on top of Huma protocol
+- We build the entire underwriting of the credit wallet on top of the Huma protocol
 - https://github.com/credit-wallet/joey-mono/tree/main/smart-contracts
 - https://github.com/credit-wallet/joey-mono/tree/main/evaluation-agent
 - https://github.com/credit-wallet/joey-mono/tree/main/signal-adapters
 
 ### Huma: Launch a real-world lending use case on Huma
-- Utilize on and off-chain data from Stripe, Circle with credit scoring done by Spectral and FLock to provide credit facility to the businesses
+- Utilize on and off-chain data from Stripe, and Circle with credit scoring done by Spectral and FLock to provide credit facilities to the businesses
 - https://github.com/credit-wallet/joey-mono/tree/main/smart-contracts
 - https://github.com/credit-wallet/joey-mono/tree/main/evaluation-agent
 - https://github.com/credit-wallet/joey-mono/tree/main/signal-adapters
@@ -81,12 +81,12 @@ https://www.figma.com/file/xcRfMLTCYX1VMqynL2JeyK/Joey-Finance?node-id=0%3A1&t=m
 - https://github.com/credit-wallet/joey-mono/tree/main/signal-adapters/huma_signals/adapters/circle
 
 ### WalletConnect Web3Modal DeFi Challenge: Making Bank
-- Utilise wallet connect to create Dapp and platform for credit card type of underwriting
+- Utilise wallet connect to create a Dapp and platform for credit card type of underwriting
 - https://github.com/credit-wallet/joey-mono/blob/main/frontend/src/index.js
 - https://github.com/credit-wallet/joey-mono/blob/main/frontend/src/components/Header.js
 
 ### ZKSync Wallet Logic! (using account abstraction) 
-- Built Acccount Abstraction ZK
+- Built Account Abstraction ZK
 - https://github.com/credit-wallet/AA-zkysync-updated/blob/main/contracts/AAFactory.sol
 - https://github.com/credit-wallet/SimpleAA
 
@@ -95,11 +95,11 @@ https://www.figma.com/file/xcRfMLTCYX1VMqynL2JeyK/Joey-Finance?node-id=0%3A1&t=m
 - https://github.com/credit-wallet/joey-mono/tree/main/signal-adapters/huma_signals/adapters/circle
 
 ### ZkBob
-- business can pay directly from the credit pool via ZKBob to protect business sensitive vendor information
+- Businesses can pay directly from the credit pool via ZKBob to protect business-sensitive vendor information
 - https://github.com/credit-wallet/joey-mono/blob/main/smart-contracts/contracts/ZkBobDirectDeposit.sol
 
 ### Spectral
-- utilize spectral credit scoring of wallets, for underwriting evaluation done by Evaluation Agents from Huma
+- utilize spectral credit scoring of wallets for underwriting evaluation done by Evaluation Agents from Huma
 - https://github.com/credit-wallet/joey-mono/tree/main/signal-adapters/huma_signals/adapters/spectral
 
 
@@ -119,7 +119,7 @@ https://www.figma.com/file/xcRfMLTCYX1VMqynL2JeyK/Joey-Finance?node-id=0%3A1&t=m
 
 **Smart contracts**
 
-```bash
+"`bash
 # clone mono repo
 gh repo clone credit-wallet/joey-mono
 
@@ -143,7 +143,7 @@ yarn deploy
 
 **Signal Adapters**
 
-```bash
+"`bash
 # Signal Adapters API server
 cd joey-mono/signal-adapters
 
@@ -161,7 +161,7 @@ make run-local
 
 **Evaluation Agent**
 
-```bash
+"`bash
 # Start the EvaluationAgent service: 
 cd joey-mono/evaluation-agent
 pip install git+https://github.com/zksync-sdk/zksync-python.git
@@ -172,7 +172,7 @@ python3 main.py
 
 **Evaluation Agent endpoints**
 
-```markdown
+"`markdown
 # POST /approve
 **params**
 	poolAddress: str
@@ -204,7 +204,7 @@ python3 main.py
 
 **Calls to Signal Adapters**
 
-```bash
+"`bash
 # API call for signal retrieval from Stripe
 curl -X 'POST' \
   'http://127.0.0.1:8000/fetch' \
@@ -342,7 +342,7 @@ curl -X 'POST' \
 
 **ZKSync chain and smart contracts**
 
-```bash
+"`bash
 # close git repot
 gh repo clone credit-wallet/joey-mono
 # Start the local nodes
@@ -361,7 +361,7 @@ yarn hardhat run scripts/deploy.ts --network zkTestnet
 
 **Signal Adapters**
 
-```bash
+"`bash
 # Signal Adapters API server
 cd joey-mono/signal-adapters
 
@@ -376,7 +376,7 @@ make run-local
 
 **Evaluation Agent**
 
-```bash
+"`bash
 # Start the EvaluationAgent service: 
 cd joey-mono/evaluation-agent
 pip install git+https://github.com/zksync-sdk/zksync-python.git
@@ -387,7 +387,7 @@ python3 main.py
 
 **Setup Metamask**
 
-```bash
+"`bash
 # Local L1 network
 # Network Name: L1 local
 New RPC URL: http://localhost:8545/
