@@ -9,9 +9,9 @@ const PayPage = ({ creditWalletAddress }) => {
     console.log("Loading ", creditWalletAddress);
     return <div>Loading</div>;
   }
-  return (
+  return creditWalletAddress&&(
     <>
-      <DummyGreeter creditWalletAddress={creditWalletAddress} />{" "}
+      {/* <DummyGreeter creditWalletAddress={creditWalletAddress} /> */}
       <Pay
         vendorAddress={vendorAddress}
         creditWalletAddress={creditWalletAddress}

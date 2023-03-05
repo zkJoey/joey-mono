@@ -8,7 +8,7 @@ const DummyGreeter = ({creditWalletAddress}) => {
   const { getGreeting, changeGreeting } = useGreeterContract(creditWalletAddress);
 
   const handleChangeGreeting = async () => {
-    await changeGreeting();
+    await changeGreeting(creditWalletAddress);
   }
 
 
