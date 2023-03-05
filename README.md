@@ -17,40 +17,90 @@
 
 ---
 
-# 💭 Proposal
+## Project Description
 
-We can build on top of Huma - [https://docs.huma.finance/](https://docs.huma.finance/)
+Today, each wallet functions as a debit card. We envision a credit line for every wallet so that people can borrow or spend as needed, similar to a credit card in real life.
 
-Huma for lending, contracts, Signal and Evaluation Agents
+Credit Wallet built using multisig Account Abstraction on ZKSync
 
-- use EIP4337 for the account abstraction for the credit wallet
-    - ZK for privacy
-- use on-chain (and off-chain) revenue data to add credit line to the users wallet. User can spent up to that amount on the credit wallet via Evaluation Agent assessment.
-- Repayment happens directly to the Huma pool from the borrowers wallet (streaming payments?)
-- create signal adapters from Stripe, Plaid, credit scoring (FICO) others - [https://docs.huma.finance/developer-guidlines/decentralized_signal_portfolio](https://docs.huma.finance/developer-guidlines/decentralized_signal_portfolio)
-    - can utilize prediction algorithms and credit risk scoring model to assess potential borrowing risk
-- angle the app to help lend to e-commerce companies, digital creators in emerging economies
+Business or individuals can have credit facility underwritten by on- and off-chain signals utilising Huma Protocol
 
-Benefits of account abstraction
+- data sources - Circle Business Account, Stripe, Request
 
-- can add social recovery - since it’s a smart contract, can add there second keys
-- fraud monitoring with 2FA
+- credit scoring - Spectral, Flock
 
-## Brief Description
+Users can make payments to the vendors and sellers directly from the Huma Pool via ZKBob to keep vendor details private
 
-Today, each wallet functions as a debit card. We envision a credit line for every wallet so that people can borrow or spend as needed, similar to a credit card in real life. 
+In case of late or default on repayments of the credit, protocol takes ownership of the revenue receiving contracts
 
-- Credit Wallet built using ZKSync Account Abstraction
-- business or individuals could have credit card (credit wallet) facility underwritten by on- and off-chain signals utilizing Huma Protocol
-    - offchain data sources - Circle Business Account, Stripe
-    - onchain credit scoring - Spectral, Flock
-- Users could make payments to the vendors and sellers directly from the Huma Pool via ZKBob to keep purchase details private
+
+## Stack
+- Dapp (React) using Web3Modal
+- Multisig Account Abstraction for the credit wallet, with second sig for potential guarantor to co-sign on the credit line
+- Deployed on ZKSync
+- Integrates Circle (customer of our user makes payments to the credit wallet)
+- Signal Adapter (python app) for Huma to get data from:
+	- Circle Business Account (https://developers.circle.com/developer/docs/getting-started-with-the-circle-core-api)
+	- Stripe
+	- credit score from Spectral and Flock
+	- Request.finance invoices as collateral
+- Evaluation Agent (python app) to consume signals and underwrite credit
+- ZKBob for transfers (direct deposits) from Pool to the end-user (https://docs.zkbob.com/resources/hackathons/zkbob-direct-deposits)
+- In case of default, the pool takes ownership of contracts receiving revenue
+- Dapp built using React
+	- login with Web3Modal
+	- connect Stripe and Cricle keys to feed Signal Adapter
+	- Calculate credit limit by Evaluation Agent
 
 ## Designs
 https://www.figma.com/file/xcRfMLTCYX1VMqynL2JeyK/Joey-Finance?node-id=0%3A1&t=mbUVKwGjPf2xoa4L-1
 
 ## Flows
 ![image](https://user-images.githubusercontent.com/7723863/222954854-a2435c36-dbf4-4c88-ba41-feacf942f4bc.png)
+
+## Bounties
+ETHDenver DeFi Track 
+
+### Huma: A credit line for every wallet
+- We build entire underwriting of the credit wallet on top of Huma protocol
+https://github.com/credit-wallet/joey-mono/tree/main/smart-contracts
+https://github.com/credit-wallet/joey-mono/tree/main/evaluation-agent
+https://github.com/credit-wallet/joey-mono/tree/main/signal-adapters
+
+### Huma: Launch a real-world lending use case on Huma
+- Utilize on and off-chain data from Stripe, Circle with credit scoring done by Spectral and FLock to provide credit facility to the businesses
+https://github.com/credit-wallet/joey-mono/tree/main/smart-contracts
+https://github.com/credit-wallet/joey-mono/tree/main/evaluation-agent
+https://github.com/credit-wallet/joey-mono/tree/main/signal-adapters
+
+### Huma: new signal adapters
+- Integrated Circle, Stripe, Spectral and Flock as new adapters
+https://github.com/credit-wallet/joey-mono/tree/main/signal-adapters/huma_signals/adapters/stripe
+https://github.com/credit-wallet/joey-mono/tree/main/signal-adapters/huma_signals/adapters/circle
+https://github.com/credit-wallet/joey-mono/tree/main/signal-adapters/huma_signals/adapters/flock
+https://github.com/credit-wallet/joey-mono/tree/main/signal-adapters/huma_signals/adapters/circle
+
+### WalletConnect Web3Modal DeFi Challenge: Making Bank
+- Utilise wallet connect to create Dapp and platform for credit card type of underwriting
+https://github.com/credit-wallet/joey-mono/blob/main/frontend/src/index.js
+https://github.com/credit-wallet/joey-mono/blob/main/frontend/src/components/Header.js
+
+### ZKSync Wallet Logic! (using account abstraction) 
+- Built Acccount Abstraction ZK
+https://github.com/credit-wallet/AA-zkysync-updated/blob/main/contracts/AAFactory.sol
+https://github.com/credit-wallet/SimpleAA
+
+### Circle: 
+- receive payment signals from the Stripe Business account and pay into the pool via Circle
+
+### ZkBob
+- business can pay directly from the credit pool via ZKBob to protect business sensitive vendor information
+https://github.com/credit-wallet/joey-mono/blob/main/smart-contracts/contracts/ZkBobDirectDeposit.sol
+
+### Spectral
+- utilize spectral credit scoring of wallets, for underwriting evaluation done by Evaluation Agents from Huma
+https://github.com/credit-wallet/joey-mono/tree/main/signal-adapters/huma_signals/adapters/spectral
+
 
 
 # Deployment instructions
