@@ -40,7 +40,7 @@ In case of late or default on repayments of the credit, protocol takes ownership
 - Deployed on ZKSync
 - Integrates Circle (customer of our user makes payments to the credit wallet)
 - Signal Adapter (python app) for Huma to get data from:
-	- Circle Business Account (https://developers.circle.com/developer/docs/getting-started-with-the-circle-core-api)
+	- Circle Business Account 
 	- Stripe
 	- credit score from Spectral and Flock
 	- Request.finance invoices as collateral
@@ -59,7 +59,7 @@ https://www.figma.com/file/xcRfMLTCYX1VMqynL2JeyK/Joey-Finance?node-id=0%3A1&t=m
 ![image](https://user-images.githubusercontent.com/7723863/222954854-a2435c36-dbf4-4c88-ba41-feacf942f4bc.png)
 
 ## Bounties
-ETHDenver DeFi Track 
+### ETHDenver DeFi Track 
 
 ### Huma: A credit line for every wallet
 - We build entire underwriting of the credit wallet on top of Huma protocol
