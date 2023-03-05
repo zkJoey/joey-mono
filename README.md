@@ -50,7 +50,7 @@ Today, each wallet functions as a debit card. We envision a credit line for ever
 https://www.figma.com/file/xcRfMLTCYX1VMqynL2JeyK/Joey-Finance?node-id=0%3A1&t=mbUVKwGjPf2xoa4L-1
 
 ## Flows
-![image](https://user-images.githubusercontent.com/7723863/222954685-e3235f16-af26-427f-854c-1b8b927bedd0.png)
+![image](https://user-images.githubusercontent.com/7723863/222954854-a2435c36-dbf4-4c88-ba41-feacf942f4bc.png)
 
 
 # Deployment instructions
