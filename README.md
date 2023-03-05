@@ -45,7 +45,7 @@ Today, each wallet functions as a debit card. We envision a credit line for ever
     - onchain credit scoring - Spectral, Flock
 - Users could make payments to the vendors and sellers directly from the Huma Pool via ZKBob to keep purchase details private
 
-
+<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FxcRfMLTCYX1VMqynL2JeyK%2FJoey-Finance%3Fnode-id%3D0%253A1%26t%3DmbUVKwGjPf2xoa4L-1" allowfullscreen></iframe>
 
 # Deployment instructions
 
