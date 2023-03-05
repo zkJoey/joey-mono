@@ -13,6 +13,7 @@ import DeployCreditWallet from "./pages/DeployCreditWallet";
 import CreditLine from "./pages/CreditLine";
 import CreditOptns from "./pages/CreditOptns"
 import CollateralPage from "./pages/CollateralPage"
+import NoCollateralPage from "./pages/NoCollateralPage"
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
@@ -147,6 +148,13 @@ const App = () => {
                 path="/collateral"
                 element={
                   <CollateralPage
+                  />
+                }
+              ></Route>
+              <Route
+                path="/no-collateral"
+                element={
+                  <NoCollateralPage
                   />
                 }
               ></Route>

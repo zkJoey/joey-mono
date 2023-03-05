@@ -35,7 +35,7 @@ const CollateralPage = ({ isCollateral }) => {
           <img src="https://i.ibb.co/Kj4RryQ/invoice.png" alt="Placeholder 1" style={{ width: '100%', height: 'auto' }} />
         </div>
         <div style={{ width: 'calc(33.33% - 10px)', marginBottom: '20px' }}>
-          <img src="https://i.ibb.co/Kj4RryQ/invoice.png" alt="Placeholder 2" style={{ width: '100%', height: 'auto' }} />
+          <img src="https://i.ibb.co/9wy5nN6/Group-1-1.png" alt="Placeholder 2" style={{ width: '100%', height: 'auto' }} />
          
         </div>
         <div style={{ width: 'calc(33.33% - 10px)', marginBottom: '20px' }}>
