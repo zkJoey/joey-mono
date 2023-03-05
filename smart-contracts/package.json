@@ -3,12 +3,21 @@
   "version": "1.0.0",
   "license": "MIT",
   "devDependencies": {
+    "@matterlabs/hardhat-zksync-chai-matchers": "^0.1.1",
+    "@matterlabs/hardhat-zksync-deploy": "^0.6.2",
+    "@matterlabs/hardhat-zksync-solc": "^0.3.14",
+    "@matterlabs/hardhat-zksync-verify": "^0.1.2",
+    "@matterlabs/zksync-contracts": "^0.5.2",
     "@nomicfoundation/hardhat-chai-matchers": "^1.0.5",
     "@nomiclabs/hardhat-ethers": "^2.1.1",
     "@nomiclabs/hardhat-etherscan": "^3.1.0",
+    "@openzeppelin/contracts": "^4.7.3",
+    "@openzeppelin/contracts-upgradeable": "^4.7.3",
     "@openzeppelin/hardhat-upgrades": "^1.20.0",
     "chai": "^4.3.6",
+    "dotenv": "^16.0.2",
     "ethers": "^5.7.0",
+    "hardhat": "^2.11.1",
     "hardhat-abi-exporter": "^2.10.0",
     "hardhat-gas-reporter": "^1.0.9",
     "hardhat-prettier": "^0.0.1",
@@ -20,15 +29,6 @@
     "solhint": "^3.3.7",
     "solidity-coverage": "^0.8.2",
     "typescript": "^4.8.2",
-    "@matterlabs/hardhat-zksync-deploy": "^0.6.2",
-    "@matterlabs/hardhat-zksync-chai-matchers": "^0.1.1",
-    "@matterlabs/hardhat-zksync-solc": "^0.3.14",
-    "@matterlabs/hardhat-zksync-verify": "^0.1.2",
-    "@matterlabs/zksync-contracts": "^0.5.2",
-    "@openzeppelin/contracts": "^4.7.3",
-    "@openzeppelin/contracts-upgradeable": "^4.7.3",
-    "dotenv": "^16.0.2",
-    "hardhat": "^2.11.1",
     "zksync-web3": "^0.13.1"
   },
   "scripts": {
@@ -36,7 +36,7 @@
     "chain": "hardhat node",
     "test": "hardhat test --network hardhat",
     "compile": "hardhat compile",
-    "deploy": "rm -f ./deployment/localhost-* && hardhat run deployment/workshop/deploy-base-credit-pool-with-init.js --network zkSyncTestnet",
+    "deploy": "rm -f ./deployment/localhost-* && hardhat run deployment/workshop/deploy-base-credit-pool-with-init.js --network zkTestnet",
     "watch": "node scripts/watch.js",
     "verify": "hardhat verify",
     "lint-solidity": "yarn solhint -f table 'contracts/**/*.sol'",
@@ -45,8 +45,8 @@
     "clear": "rm -f ./deployment/localhost-*"
   },
   "dependencies": {
-    "@matterlabs/hardhat-zksync-deploy": "^0.6.2",
     "@matterlabs/hardhat-zksync-chai-matchers": "^0.1.1",
+    "@matterlabs/hardhat-zksync-deploy": "^0.6.2",
     "@matterlabs/hardhat-zksync-solc": "^0.3.14",
     "@matterlabs/hardhat-zksync-verify": "^0.1.2",
     "@matterlabs/zksync-contracts": "^0.5.2",
@@ -54,6 +54,8 @@
     "@openzeppelin/contracts-upgradeable": "^4.7.3",
     "dotenv": "^16.0.2",
     "hardhat": "^2.11.1",
+    "hardhat-contract-sizer": "^2.8.0",
+    "ts-node": "^10.9.1",
     "zksync-web3": "^0.13.1"
   }
 }

@@ -203,7 +203,7 @@ contract BaseCreditPool is BasePool, BaseCreditPoolStorage, ICredit {
         if (borrowAmount == 0) revert Errors.zeroAmountProvided();
         BS.CreditRecord memory cr = _getCreditRecord(borrower);
 
-        _checkDrawdownEligibility(borrower, cr, borrowAmount);
+        // _checkDrawdownEligibility(borrower, cr, borrowAmount);
         uint256 netAmountToBorrower = _drawdown(borrower, cr, borrowAmount, receiver);
         emit DrawdownMade(borrower, borrowAmount, netAmountToBorrower);
     }

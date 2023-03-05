@@ -3,34 +3,70 @@ const {deploy, updateInitilizedContract} = require("../utils.js");
 const {utils, Wallet, Provider} = require("zksync-web3");
 const {Deployer} = require("@matterlabs/hardhat-zksync-deploy");
 
-const RICH_WALLET_PK = "0xf12e28c0eb1ef4ff90478f6805b68d63737b7f33abfa091601140805da450d93";
+// const RICH_WALLET_PK = "0xf12e28c0eb1ef4ff90478f6805b68d63737b7f33abfa091601140805da450d93";
+// private keys 
+const RICH0 = "0x7726827caac94a7f9e1b160f7ea819f172f7b6f9d2a97f992c38edeab82d4110";
+const RICH1 = "0xac1e735be8536c6534bb4f17f06f6afc73b2b5ba84ac2cfb12f7461b20c0bbe3";
+const RICH2 = "0xd293c684d884d56f8d6abd64fc76757d3664904e309a0645baf8522ab6366d9e"
+const RICH3 = "0x850683b40d4a740aa6e745f889a6fdc8327be76e122f5aba645a5b02d0248db8";
+const RICH4 = "0x850683b40d4a740aa6e745f889a6fdc8327be76e122f5aba645a5b02d0248db8";
+const RICH5 = "0xf12e28c0eb1ef4ff90478f6805b68d63737b7f33abfa091601140805da450d93";
+const RICH6 = "0xe667e57a9b8aaa6709e51ff7d093f1c5b73b63f9987e4ab4aa9a5c699e024ee8";
+const RICH7 = "0x28a574ab2de8a00364d5dd4b07c4f2f574ef7fcc2a86a197f65abaec836d1959";
+const RICH8 = "0x74d8b3a188f7260f67698eb44da07397a298df5427df681ef68c45b34b61f998";
+const RICH9 = "0xbe79721778b48bcc679b78edac0ce48306a8578186ffcb9f2ee455ae6efeace1";
+const RICH10 = "0x3eb15da85647edd9a1159a4a13b9e7c56877c4eb33f614546d4db06a51868b1c";
+
 
 async function deployContracts() {
     // await hre.network.provider.send("hardhat_reset")
-    const [borrower] = await hre.ethers.getSigners();
+    // const [borrower] = await hre.ethers.getSigners();
 
-    const wallet = new Wallet(RICH_WALLET_PK);
-    const provider = new Provider("http://0.0.0.0:8545");
+    const privateKey = process.env.PRIVATE_KEY ?? 'null';
+    const wallet = new Wallet(privateKey);
+
+    const privateKey2 = process.env.PRIVATE_KEY2 ?? 'null';
+    const wallet2 = new Wallet(privateKey2);
+
+
+    const provider = new Provider("https://zksync2-testnet.zksync.dev");
     console.log("wallet address:", wallet.address);
     console.log("provider:", provider);
-    // const walletL2 = wallet.connect(provider);
-    // const deployer = new Deployer(hre, wallet);
     const deployer = new Deployer(hre, wallet);
 
-    const treasury_wallet = new Wallet(RICH_WALLET_PK);
-    const treasury = treasury_wallet.connect(provider);
-    const lender_wallet = new Wallet(RICH_WALLET_PK);
+    const treasury_wallet = new Wallet(privateKey2); // to change 
+    const treasury = treasury_wallet.connect(provider); 
+    const lender_wallet = new Wallet(privateKey);
     const lender = lender_wallet.connect(provider);
-    const ea_wallet = new Wallet(RICH_WALLET_PK);
+    const ea_wallet = new Wallet(privateKey);
     const ea = ea_wallet.connect(provider);
-    const eaService_wallet = new Wallet(RICH_WALLET_PK);
+    const eaService_wallet = new Wallet(privateKey);
     const eaService = eaService_wallet.connect(provider);
-    const proxyOwner_wallet = new Wallet(RICH_WALLET_PK);
+    const proxyOwner_wallet = new Wallet(privateKey);
     const proxyOwner = proxyOwner_wallet.connect(provider);
-    const pdsService_wallet = new Wallet(RICH_WALLET_PK);
+    const pdsService_wallet = new Wallet(privateKey);
     const pdsService = pdsService_wallet.connect(provider);
+    const receiver_wallet = new Wallet(privateKey);
+    const receiver = receiver_wallet.connect(provider);
+    
 
-    // console.log("ea address:", eaService.address);x`
+
+    const USDC_L2_ADDRESS = "0x0faF6df7054946141266420b43783387A78d82A9";
+
+    console.log(await provider.getBalance(RICH1, "latest", USDC_L2_ADDRESS));
+    console.log(await provider.getBalance(RICH2, "latest", USDC_L2_ADDRESS));
+    console.log(await provider.getBalance(RICH3, "latest", USDC_L2_ADDRESS));
+    console.log(await provider.getBalance(RICH4, "latest", USDC_L2_ADDRESS));
+    console.log(await provider.getBalance(RICH5, "latest", USDC_L2_ADDRESS));
+    console.log(await provider.getBalance(RICH6, "latest", USDC_L2_ADDRESS));
+    console.log(await provider.getBalance(RICH7, "latest", USDC_L2_ADDRESS));
+    console.log(await provider.getBalance(RICH8, "latest", USDC_L2_ADDRESS));
+    console.log(await provider.getBalance(RICH9, "latest", USDC_L2_ADDRESS));
+    console.log(await provider.getBalance(RICH10, "latest", USDC_L2_ADDRESS));
+
+
+
+
 
     console.log("deploying contracts...");
     const usdc = await deploy("TestToken", "USDC", [], deployer);
@@ -168,27 +204,42 @@ async function deployContracts() {
     await pool.addApprovedLender(treasury.address, {gasLimit: 1000000});
     console.log("Added approved treasury lender");
 
-    const amountOwner = BN.from(20_000).mul(BN.from(10).pow(BN.from(decimals)));
+    const amountOwner = BN.from(1).mul(BN.from(10).pow(BN.from(decimals)));
     await usdc.mint(treasury.address, amountOwner);
-    await usdc.connect(treasury).approve(pool.address, amountOwner);
-    await pool.connect(treasury).makeInitialDeposit(amountOwner);
+    const txHandle = await usdc.connect(treasury).approve(pool.address, amountOwner, {gasLimit:10000000});
+    // await txHandle.wait();
+    console.log("waiting");
+    console.log(txHandle);
+    // await txHandle.waitFinalize();
+    console.log("finalized");
+    console.log("usdc approval");
+    await pool.connect(treasury).makeInitialDeposit(amountOwner, {gasLimit:10000000});
     console.log("Enabling pool");
     const amountEA = BN.from(10_000).mul(BN.from(10).pow(BN.from(decimals)));
-    await usdc.mint(ea.address, amountEA, {gasLimit: 1000000});
+    await usdc.mint(ea.address, amountEA, {gasLimit: 10000000});
     console.log("Enabling pool");
-    await usdc.connect(ea).approve(pool.address, amountEA);
+    await usdc.connect(ea).approve(pool.address, amountEA, {gasLimit:10000000});
     console.log("usdc approval");
-    await pool.connect(ea).makeInitialDeposit(amountEA);
+    await pool.connect(ea).makeInitialDeposit(amountEA, {gasLimit:10000000});
     console.log("makeInitialDeposit done");
     await pool.enablePool({gasLimit: 1000000});
     console.log("Pool is enabled");
+
 
     const amountLender = BN.from(500_000).mul(BN.from(10).pow(BN.from(decimals)));
     await pool.addApprovedLender(lender.address, {gasLimit: 1000000});
     await usdc.mint(lender.address, amountLender, {gasLimit: 1000000});
     console.log("USDC minted to lender");
     await usdc.connect(lender).approve(pool.address, amountLender);
-    // await pool.connect(lender).deposit(amountLender);
+    // const tx = await poolImpl.drawdown(amountLender, receiver.address, {gasLimit: 1000000});
+        
+
+    const borrowAmount = BN.from(1).mul(BN.from(10).pow(BN.from(decimals)));
+    const x = await pool.drawdown(borrowAmount, receiver.address, {gasLimit: 1000000});
+    console.log(receiver.address);
+    console.log(x);
+    console.log("drawdown done");
+
 }
 
 deployContracts()
