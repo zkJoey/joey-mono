@@ -11,6 +11,9 @@ import Pay from "./components/Pay";
 import CreditInfoPage from "./pages/CreditInfoPage";
 import DeployCreditWallet from "./pages/DeployCreditWallet";
 import CreditLine from "./pages/CreditLine";
+import CreditOptns from "./pages/CreditOptns"
+import CollateralPage from "./pages/CollateralPage"
+
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 // Web3Modal
@@ -130,6 +133,20 @@ const App = () => {
                   <CreditLine
                     creditWalletAddress={creditWalletAddress}
                     setCreditStatus={setCreditStatus}
+                  />
+                }
+              ></Route>
+               <Route
+                path="/credit-optns"
+                element={
+                  <CreditOptns
+                  />
+                }
+              ></Route>
+               <Route
+                path="/collateral"
+                element={
+                  <CollateralPage
                   />
                 }
               ></Route>
