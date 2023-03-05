@@ -17,7 +17,7 @@ const MockCreditInfo = ({creditStatus}) => {
         <p className="text-sm font-medium text-gray-500 uppercase tracking-wide">
           Stripe Revenue
         </p>
-        <p className="mt-2 text-lg font-bold text-gray-900 font-mono">$18,000</p>
+        <p className="mt-2 text-lg font-bold text-gray-900 font-mono">N/A</p>
       </div>
       <div className="text-center">
         <p className="text-sm font-medium text-gray-500 uppercase tracking-wide">
@@ -29,7 +29,7 @@ const MockCreditInfo = ({creditStatus}) => {
         <p className="text-sm font-medium text-gray-500 uppercase tracking-wide">
           Interest Rate
         </p>
-        <p className="mt-2 text-lg font-bold text-gray-900 font-mono">%10</p>
+        <p className="mt-2 text-lg font-bold text-gray-900 font-mono">9.43%</p>
       </div>
       </div>
       <div className="grid grid-cols-1 gap-1">
@@ -37,7 +37,7 @@ const MockCreditInfo = ({creditStatus}) => {
         <p className="text-sm font-medium text-gray-500 uppercase tracking-wide">
           Credit Limit
         </p>
-        <p className="mt-2 text-lg font-bold text-gray-900 font-mono">$10,000</p>
+        <p className="mt-2 text-lg font-bold text-gray-900 font-mono">$2489.5</p>
       </div>
 
       </div>

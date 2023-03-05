@@ -146,7 +146,7 @@ const App = () => {
                 }
               ></Route>
                <Route
-                path="/credit"
+                path="/collateral"
                 element={
                   <CollateralPage
                   />

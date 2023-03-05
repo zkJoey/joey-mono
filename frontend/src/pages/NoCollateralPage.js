@@ -18,7 +18,7 @@ const ExampleComponent = () => {
         <p className="text-sm font-medium text-gray-500 uppercase tracking-wide">
           Stripe Revenue
         </p>
-        <p className="mt-2 text-lg font-bold text-gray-900 font-mono">$18,000.00</p>
+        <p className="mt-2 text-lg font-bold text-gray-900 font-mono">N/A</p>
       </div>
       <div className="text-center">
         <p className="text-sm font-medium text-gray-500 uppercase tracking-wide">
@@ -30,7 +30,7 @@ const ExampleComponent = () => {
         <p className="text-sm font-medium text-gray-500 uppercase tracking-wide">
           Interest Rate
         </p>
-        <p className="mt-2 text-lg font-bold text-gray-900 font-mono">9.6%</p>
+        <p className="mt-2 text-lg font-bold text-gray-900 font-mono">4.6%</p>
       </div>
     </div>
     <div className="text-center">

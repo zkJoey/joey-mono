@@ -28,7 +28,7 @@ const ExampleComponent = ({creditStatus}) => {
         <p className="text-sm font-medium text-gray-500 uppercase tracking-wide">
           Credit Limit
         </p>
-        <p className="mt-2 text-lg font-bold text-gray-900 font-mono">$0</p>
+        <p className="mt-2 text-lg font-bold text-gray-900 font-mono">$2478.00</p>
       </div>
       <div className="text-center">
         <p className="text-sm font-medium text-gray-500 uppercase tracking-wide">
@@ -38,9 +38,9 @@ const ExampleComponent = ({creditStatus}) => {
       </div>
       <div className="text-center">
         <p className="text-sm font-medium text-gray-500 uppercase tracking-wide">
-          APR
+          Interest rate
         </p>
-        <p className="mt-2 text-lg font-bold text-gray-900 font-mono">%10</p>
+        <p className="mt-2 text-lg font-bold text-gray-900 font-mono">4.5%</p>
       </div>
     </div>
   );
