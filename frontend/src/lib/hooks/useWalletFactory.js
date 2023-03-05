@@ -62,10 +62,7 @@ const useWalletFactory = () => {
     console.log(`Balance of the AA: ${balance}`);
     // await contract.createWallet();
     // const address = await signer.getAddress();
-    const smartContractWalletAddress = await aaFactory.wallets(owner1address);
-    // console.log("SASD", smartContractWalletAddress);
-    console.log("SASD", smartContractWalletAddress);
-    return smartContractWalletAddress;
+    return multisigAddress;
   };
 
   const getCreditWalletAddress = async () => {
