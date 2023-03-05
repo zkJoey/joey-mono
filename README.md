@@ -64,44 +64,44 @@ https://www.figma.com/file/xcRfMLTCYX1VMqynL2JeyK/Joey-Finance?node-id=0%3A1&t=m
 
 ### Huma: A credit line for every wallet
 - We build entire underwriting of the credit wallet on top of Huma protocol
-https://github.com/credit-wallet/joey-mono/tree/main/smart-contracts
-https://github.com/credit-wallet/joey-mono/tree/main/evaluation-agent
-https://github.com/credit-wallet/joey-mono/tree/main/signal-adapters
+- https://github.com/credit-wallet/joey-mono/tree/main/smart-contracts
+- https://github.com/credit-wallet/joey-mono/tree/main/evaluation-agent
+- https://github.com/credit-wallet/joey-mono/tree/main/signal-adapters
 
 ### Huma: Launch a real-world lending use case on Huma
 - Utilize on and off-chain data from Stripe, Circle with credit scoring done by Spectral and FLock to provide credit facility to the businesses
-https://github.com/credit-wallet/joey-mono/tree/main/smart-contracts
-https://github.com/credit-wallet/joey-mono/tree/main/evaluation-agent
-https://github.com/credit-wallet/joey-mono/tree/main/signal-adapters
+- https://github.com/credit-wallet/joey-mono/tree/main/smart-contracts
+- https://github.com/credit-wallet/joey-mono/tree/main/evaluation-agent
+- https://github.com/credit-wallet/joey-mono/tree/main/signal-adapters
 
 ### Huma: new signal adapters
 - Integrated Circle, Stripe, Spectral and Flock as new adapters
-https://github.com/credit-wallet/joey-mono/tree/main/signal-adapters/huma_signals/adapters/stripe
-https://github.com/credit-wallet/joey-mono/tree/main/signal-adapters/huma_signals/adapters/circle
-https://github.com/credit-wallet/joey-mono/tree/main/signal-adapters/huma_signals/adapters/flock
-https://github.com/credit-wallet/joey-mono/tree/main/signal-adapters/huma_signals/adapters/circle
+- https://github.com/credit-wallet/joey-mono/tree/main/signal-adapters/huma_signals/adapters/stripe
+- https://github.com/credit-wallet/joey-mono/tree/main/signal-adapters/huma_signals/adapters/circle
+- https://github.com/credit-wallet/joey-mono/tree/main/signal-adapters/huma_signals/adapters/flock
+- https://github.com/credit-wallet/joey-mono/tree/main/signal-adapters/huma_signals/adapters/circle
 
 ### WalletConnect Web3Modal DeFi Challenge: Making Bank
 - Utilise wallet connect to create Dapp and platform for credit card type of underwriting
-https://github.com/credit-wallet/joey-mono/blob/main/frontend/src/index.js
-https://github.com/credit-wallet/joey-mono/blob/main/frontend/src/components/Header.js
+- https://github.com/credit-wallet/joey-mono/blob/main/frontend/src/index.js
+- https://github.com/credit-wallet/joey-mono/blob/main/frontend/src/components/Header.js
 
 ### ZKSync Wallet Logic! (using account abstraction) 
 - Built Acccount Abstraction ZK
-https://github.com/credit-wallet/AA-zkysync-updated/blob/main/contracts/AAFactory.sol
-https://github.com/credit-wallet/SimpleAA
+- https://github.com/credit-wallet/AA-zkysync-updated/blob/main/contracts/AAFactory.sol
+- https://github.com/credit-wallet/SimpleAA
 
 ### Circle: 
 - receive payment signals from the Stripe Business account
-https://github.com/credit-wallet/joey-mono/tree/main/signal-adapters/huma_signals/adapters/circle
+- https://github.com/credit-wallet/joey-mono/tree/main/signal-adapters/huma_signals/adapters/circle
 
 ### ZkBob
 - business can pay directly from the credit pool via ZKBob to protect business sensitive vendor information
-https://github.com/credit-wallet/joey-mono/blob/main/smart-contracts/contracts/ZkBobDirectDeposit.sol
+- https://github.com/credit-wallet/joey-mono/blob/main/smart-contracts/contracts/ZkBobDirectDeposit.sol
 
 ### Spectral
 - utilize spectral credit scoring of wallets, for underwriting evaluation done by Evaluation Agents from Huma
-https://github.com/credit-wallet/joey-mono/tree/main/signal-adapters/huma_signals/adapters/spectral
+- https://github.com/credit-wallet/joey-mono/tree/main/signal-adapters/huma_signals/adapters/spectral
 
 
 
