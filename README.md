@@ -104,7 +104,7 @@ https://www.figma.com/file/xcRfMLTCYX1VMqynL2JeyK/Joey-Finance?node-id=0%3A1&t=m
 
 
 
-# Deployment instructions
+### Deployment instructions
 
 ## Run commands
 
@@ -119,31 +119,31 @@ https://www.figma.com/file/xcRfMLTCYX1VMqynL2JeyK/Joey-Finance?node-id=0%3A1&t=m
 
 **Smart contracts**
 
-"`bash
-# clone mono repo
+```
+### clone mono repo
 gh repo clone credit-wallet/joey-mono
 
-# smart contracts
+### smart contracts
 cd smart-contracts
 yarn install
 yarn build
 yarn test
 yarn chain
 
-# with yarn chain, the console will print out 20 testing accounts
-# Account 6 has sufficient test usdc as a lender
-# Account 7 and later can be used as borrowers
+### with yarn chain, the console will print out 20 testing accounts
+### Account 6 has sufficient test usdc as a lender
+### Account 7 and later can be used as borrowers
 
-# start a new terminal
+### start a new terminal
 yarn deploy
 
-# all deployed contract addresses can be found in deployment/localhost-deployed-contracts.json
-# If some error happens and you need to start over, run: yarn clear, then deploy again
+### all deployed contract addresses can be found in deployment/localhost-deployed-contracts.json
+### If some error happens and you need to start over, run: yarn clear, then deploy again
 ```
 
-**Signal Adapters**
+### **Signal Adapters**
 
-"`bash
+```
 # Signal Adapters API server
 cd joey-mono/signal-adapters
 
@@ -159,9 +159,9 @@ poetry install
 make run-local
 ```
 
-**Evaluation Agent**
+### **Evaluation Agent**
 
-"`bash
+```
 # Start the EvaluationAgent service: 
 cd joey-mono/evaluation-agent
 pip install git+https://github.com/zksync-sdk/zksync-python.git
@@ -170,10 +170,10 @@ pip install zksync2
 python3 main.py
 ```
 
-**Evaluation Agent endpoints**
+### **Evaluation Agent endpoints**
 
-"`markdown
-# POST /approve
+```
+### POST /approve
 **params**
 	poolAddress: str
   borrowerWalletAddress: str
@@ -186,7 +186,7 @@ python3 main.py
     "aprInBps": 0
 }
 
-# POST /underwrite
+### POST /underwrite
 **params**
 	poolAddress: str
   borrowerWalletAddress: str
@@ -202,10 +202,10 @@ python3 main.py
 
 ```
 
-**Calls to Signal Adapters**
+### **Calls to Signal Adapters**
 
-"`bash
-# API call for signal retrieval from Stripe
+```
+### API call for signal retrieval from Stripe
 curl -X 'POST' \
   'http://127.0.0.1:8000/fetch' \
   -H 'accept: application/json' \
@@ -217,7 +217,7 @@ curl -X 'POST' \
   "adapter_inputs": {"stripe_api_key": "sk_test_4eC39HqLyjWDarjtT1zdp7dc"}
 }'
 
-# API call for signal retrieval from Circle
+### API call for signal retrieval from Circle
 curl -X 'POST' \
   'http://127.0.0.1:8000/fetch' \
   -H 'accept: application/json' \
@@ -229,7 +229,7 @@ curl -X 'POST' \
   "adapter_inputs": {"account": "circle_71283"}
 }'
 
-# API call for signal retrieval from Spectral
+### API call for signal retrieval from Spectral
 curl -X 'POST' \
   'http://localhost:8000/fetch' \
   -H 'accept: application/json' \
@@ -241,7 +241,7 @@ curl -X 'POST' \
   "adapter_inputs": {"wallet": "0x573d19B66Cdc33f7E751f2a478ECeCe95155e798", "token":"SFMyNTY.g2gDbQAAACQ3MGY1ZDgxMC0yMjk1LTQyMjQtODA1Zi01ZGNmNzMxYzY3YTBuBgBspGeWhgFiAAFRgA.ruwaqqurFh6PCDUhY0z0TNmiWiqrmp8ZOmG3--bksSM"}
 }'
 
-# API call for signal retrieval from Flock
+### API call for signal retrieval from Flock
 curl -X 'POST' \
   'http://localhost:8000/fetch' \
   -H 'accept: application/json' \
@@ -340,28 +340,28 @@ curl -X 'POST' \
 
 ## ZKSync deployment
 
-**ZKSync chain and smart contracts**
+### **ZKSync chain and smart contracts**
 
-"`bash
+```
 # close git repot
 gh repo clone credit-wallet/joey-mono
 # Start the local nodes
 
-# install Docker first
+### install Docker first
 
-# To run zkSync locally, run the start.sh script:
+### To run zkSync locally, run the start.sh script:
 cd zkchain-setup
 ./start.sh
 
-# deploy smart contracts on zksync
+### deploy smart contracts on zksync
 gh repo clone credit-wallet/huma-contracts-zk
 cd huma-contracts-zk
 yarn hardhat run scripts/deploy.ts --network zkTestnet
 ```
 
-**Signal Adapters**
+### **Signal Adapters**
 
-"`bash
+```
 # Signal Adapters API server
 cd joey-mono/signal-adapters
 
@@ -374,9 +374,9 @@ poetry install
 make run-local
 ```
 
-**Evaluation Agent**
+### **Evaluation Agent**
 
-"`bash
+```
 # Start the EvaluationAgent service: 
 cd joey-mono/evaluation-agent
 pip install git+https://github.com/zksync-sdk/zksync-python.git
@@ -385,37 +385,36 @@ pip install zksync2
 python3 main.py
 ```
 
-**Setup Metamask**
+### **Setup Metamask**
 
-"`bash
-# Local L1 network
-# Network Name: L1 local
+```
+### Local L1 network
+### Network Name: L1 local
 New RPC URL: http://localhost:8545/
 Chain ID: 9
 Currency Symbol: ETH
 Local zkSync network
 
-# Network Name: L2 local zkSync
+### Network Name: L2 local zkSync
 New RPC URL: http://localhost:3050/
 Chain ID: 270
 Currency Symbol: ETH
 ```
 
 Update for ZK
-
-```bash
-# evaluation agent, huma_pool.py
+```
+### evaluation agent, huma_pool.py
 self.w3 = Web3(HTTPProvider("http://0.0.0.0:3050"))
 
-# metamask
-# Network Name: L2 local zkSync
+### metamask
+### Network Name: L2 local zkSync
 New RPC URL: http://localhost:3050/
 Chain ID: 270
 Currency Symbol: ETH
 ```
 
 
-## Deployed contracts on [zkSync Era Goerli](https://goerli.explorer.zksync.io/)
+### Deployed contracts on [zkSync Era Goerli](https://goerli.explorer.zksync.io/)
 
 - [USDC](https://goerli.explorer.zksync.io/address/0xeD8b31e469EAEc22239F83B5aFFbc9C91f2D954f)
 - [EANFT](https://goerli.explorer.zksync.io/address/0x847DCd9ce023fc0e9502A80199E4d2200B3c833f)
