@@ -49,7 +49,7 @@ In case of late or default on repayments of the credit, the protocol takes owner
 - In case of default, the pool takes ownership of contracts receiving revenue
 - Dapp built using React
 	- login with Web3Modal
-	- connect Stripe and Cricle keys to feed Signal Adapter
+	- connect Stripe and Circle keys to feed Signal Adapter
 	- Calculate credit limit by Evaluation Agent
 
 ## Designs
@@ -91,7 +91,7 @@ https://www.figma.com/file/xcRfMLTCYX1VMqynL2JeyK/Joey-Finance?node-id=0%3A1&t=m
 - https://github.com/credit-wallet/SimpleAA
 
 ### Circle: 
-- receive payment signals from the Stripe Business account
+- receive payment signals from the Circle Business account
 - https://github.com/credit-wallet/joey-mono/tree/main/signal-adapters/huma_signals/adapters/circle
 
 ### ZkBob
