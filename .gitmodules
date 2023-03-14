@@ -1,0 +1,3 @@
+[submodule "AA-wallet-contracts/AA-zkysync-updated"]
+	path = AA-wallet-contracts/AA-zkysync-updated
+	url = git@github.com:credit-wallet/AA-zkysync-updated.git
