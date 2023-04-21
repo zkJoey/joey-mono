@@ -121,13 +121,16 @@ module.exports = {
             },
         ],
     },
-    zksolc: {
-        version: '1.3.5',
-        compilerSource: 'binary',
-        settings: {
-            isSystem: true,
-        }
-    },
+    zksolc: { 
+      version: "1.3.8", 
+      compilerSource: "binary", 
+      settings: { 
+        optimizer: { 
+          enabled: true, 
+          mode: "z", 
+        }, 
+      }, 
+    }, 
     
     /**
      * gas reporter configuration that let's you know
